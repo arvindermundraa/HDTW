@@ -1,0 +1,260 @@
+{
+  "_comment": "SAMPLE dining-hall menu for the Week 2 cafeteria scenario. The TAMU Dining v4 API returns item names + portion but not nutrient values (see backend/dining_scraper.py), so until the research team supplies verified nutrition info or the live feed exposes it, we use this curated sample. The loader (backend/week2_scenarios.py) will prefer a live feed when one lands by swapping its source. 'sample': true on every item \u2014 while any item in a hall/period is still sample, that hall/period is served ONLY to is_test accounts; real participants fall back to the next hall/period or see 'coming soon'.",
+  "halls": [
+    {
+      "id": "commons",
+      "name": "The Commons",
+      "periods": {
+        "breakfast": [
+          {
+            "id": "commons_bkfst_scrambled_eggs_bacon",
+            "name": "Scrambled eggs with bacon",
+            "serving": "1 plate",
+            "saturated_fat_g": 7,
+            "sodium_mg": 820,
+            "fiber_g": 1,
+            "sample": true,
+            "eligible": true,
+            "calories": 420
+          },
+          {
+            "id": "commons_bkfst_oatmeal_with_fruit",
+            "name": "Oatmeal with fresh fruit",
+            "serving": "1 bowl",
+            "saturated_fat_g": 1,
+            "sodium_mg": 190,
+            "fiber_g": 6,
+            "sample": true,
+            "eligible": true,
+            "calories": 280
+          },
+          {
+            "id": "commons_bkfst_breakfast_burrito",
+            "name": "Breakfast burrito (eggs, cheese, sausage, tortilla)",
+            "serving": "1 burrito",
+            "saturated_fat_g": 9,
+            "sodium_mg": 920,
+            "fiber_g": 3,
+            "sample": true,
+            "eligible": true,
+            "calories": 540
+          }
+        ],
+        "lunch": [
+          {
+            "id": "commons_lunch_grilled_chicken_rice_bowl",
+            "name": "Grilled chicken rice bowl with mixed vegetables",
+            "serving": "1 bowl",
+            "saturated_fat_g": 3,
+            "sodium_mg": 560,
+            "fiber_g": 5,
+            "sample": true,
+            "eligible": true,
+            "calories": 490
+          },
+          {
+            "id": "commons_lunch_cheese_pizza_slice",
+            "name": "Cheese pizza (two slices)",
+            "serving": "2 slices",
+            "saturated_fat_g": 10,
+            "sodium_mg": 780,
+            "fiber_g": 2,
+            "sample": true,
+            "eligible": true,
+            "calories": 580
+          },
+          {
+            "id": "commons_lunch_turkey_sandwich_whole_wheat",
+            "name": "Turkey sandwich on whole-wheat bread with lettuce and tomato",
+            "serving": "1 sandwich",
+            "saturated_fat_g": 4,
+            "sodium_mg": 980,
+            "fiber_g": 5,
+            "sample": true,
+            "eligible": true,
+            "calories": 430
+          },
+          {
+            "id": "commons_lunch_vegetable_lentil_soup",
+            "name": "Vegetable lentil soup",
+            "serving": "1 bowl",
+            "saturated_fat_g": 1,
+            "sodium_mg": 620,
+            "fiber_g": 8,
+            "sample": true,
+            "eligible": true,
+            "calories": 260
+          },
+          {
+            "id": "commons_lunch_fried_chicken_plate",
+            "name": "Fried chicken plate with mashed potatoes",
+            "serving": "1 plate",
+            "saturated_fat_g": 12,
+            "sodium_mg": 1150,
+            "fiber_g": 3,
+            "sample": true,
+            "eligible": true,
+            "calories": 740
+          }
+        ],
+        "dinner": [
+          {
+            "id": "commons_dinner_baked_salmon_rice_broccoli",
+            "name": "Baked salmon with brown rice and broccoli",
+            "serving": "1 plate",
+            "saturated_fat_g": 3,
+            "sodium_mg": 420,
+            "fiber_g": 6,
+            "sample": true,
+            "eligible": true,
+            "calories": 510
+          },
+          {
+            "id": "commons_dinner_beef_lasagna",
+            "name": "Beef lasagna",
+            "serving": "1 slice",
+            "saturated_fat_g": 11,
+            "sodium_mg": 870,
+            "fiber_g": 3,
+            "sample": true,
+            "eligible": true,
+            "calories": 620
+          },
+          {
+            "id": "commons_dinner_vegetable_stir_fry_tofu",
+            "name": "Vegetable stir-fry with tofu over brown rice",
+            "serving": "1 plate",
+            "saturated_fat_g": 2,
+            "sodium_mg": 720,
+            "fiber_g": 7,
+            "sample": true,
+            "eligible": true,
+            "calories": 470
+          },
+          {
+            "id": "commons_dinner_chicken_alfredo_pasta",
+            "name": "Chicken alfredo pasta",
+            "serving": "1 plate",
+            "saturated_fat_g": 13,
+            "sodium_mg": 980,
+            "fiber_g": 3,
+            "sample": true,
+            "eligible": true,
+            "calories": 710
+          }
+        ]
+      }
+    },
+    {
+      "id": "sbisa",
+      "name": "Sbisa Dining Hall",
+      "periods": {
+        "breakfast": [
+          {
+            "id": "sbisa_bkfst_greek_yogurt_parfait",
+            "name": "Greek yogurt parfait with granola and berries",
+            "serving": "1 cup",
+            "saturated_fat_g": 2,
+            "sodium_mg": 95,
+            "fiber_g": 4,
+            "sample": true,
+            "eligible": true,
+            "calories": 290
+          },
+          {
+            "id": "sbisa_bkfst_sausage_biscuit",
+            "name": "Sausage biscuit",
+            "serving": "1 biscuit",
+            "saturated_fat_g": 10,
+            "sodium_mg": 1080,
+            "fiber_g": 2,
+            "sample": true,
+            "eligible": true,
+            "calories": 480
+          },
+          {
+            "id": "sbisa_bkfst_veggie_omelet",
+            "name": "Veggie omelet with whole-wheat toast",
+            "serving": "1 plate",
+            "saturated_fat_g": 5,
+            "sodium_mg": 480,
+            "fiber_g": 4,
+            "sample": true,
+            "eligible": true,
+            "calories": 360
+          }
+        ],
+        "lunch": [
+          {
+            "id": "sbisa_lunch_quinoa_power_bowl",
+            "name": "Quinoa power bowl with roasted vegetables and chickpeas",
+            "serving": "1 bowl",
+            "saturated_fat_g": 1,
+            "sodium_mg": 410,
+            "fiber_g": 9,
+            "sample": true,
+            "eligible": true,
+            "calories": 540
+          },
+          {
+            "id": "sbisa_lunch_cheeseburger_fries",
+            "name": "Cheeseburger with fries",
+            "serving": "1 plate",
+            "saturated_fat_g": 14,
+            "sodium_mg": 1050,
+            "fiber_g": 3,
+            "sample": true,
+            "eligible": true,
+            "calories": 820
+          },
+          {
+            "id": "sbisa_lunch_grilled_chicken_caesar",
+            "name": "Grilled chicken Caesar salad",
+            "serving": "1 bowl",
+            "saturated_fat_g": 6,
+            "sodium_mg": 820,
+            "fiber_g": 4,
+            "sample": true,
+            "eligible": true,
+            "calories": 460
+          }
+        ],
+        "dinner": [
+          {
+            "id": "sbisa_dinner_roast_turkey_sweet_potato",
+            "name": "Roast turkey with sweet potato and green beans",
+            "serving": "1 plate",
+            "saturated_fat_g": 2,
+            "sodium_mg": 540,
+            "fiber_g": 7,
+            "sample": true,
+            "eligible": true,
+            "calories": 380
+          },
+          {
+            "id": "sbisa_dinner_bean_vegetable_chili",
+            "name": "Three-bean vegetable chili",
+            "serving": "1 bowl",
+            "saturated_fat_g": 1,
+            "sodium_mg": 680,
+            "fiber_g": 10,
+            "sample": true,
+            "eligible": true,
+            "calories": 380
+          },
+          {
+            "id": "sbisa_dinner_bbq_pulled_pork_sandwich",
+            "name": "BBQ pulled pork sandwich with coleslaw",
+            "serving": "1 sandwich",
+            "saturated_fat_g": 8,
+            "sodium_mg": 1120,
+            "fiber_g": 3,
+            "sample": true,
+            "eligible": true,
+            "calories": 530
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "expo": {
+    "name": "LLHS",
+    "slug": "frontend",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "frontend",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.emergent.cardiocoach.t5eifa",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Take photos of meals to log them",
+        "NSPhotoLibraryUsageDescription": "Choose meal photos to log them",
+        "NSHealthShareUsageDescription": "Read your sleep data from Apple Health so your Rest score can use a high-confidence reading instead of a manual guess"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#FDFBF7"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.emergent.cardiocoach.t5eifa",
+      "permissions": ["CAMERA", "READ_MEDIA_IMAGES", "POST_NOTIFICATIONS"]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-video",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Take photos of meals to log them"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose meal photos to log them"
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#FDFBF7"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-image.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#FDFBF7"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

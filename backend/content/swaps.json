@@ -1,0 +1,3487 @@
+[
+  {
+    "id": "fats_whole_milk_yogurt",
+    "focus_area": "fats",
+    "habit": "whole_milk_yogurt",
+    "slot": "breakfast",
+    "swap_label": "Try lower-fat yogurt",
+    "text": "If you enjoy yogurt, compare plain lower-fat versions as an alternative to whole-milk yogurt.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "low fat",
+        "yogurt"
+      ],
+      [
+        "lowfat",
+        "yogurt"
+      ],
+      [
+        "nonfat",
+        "yogurt"
+      ],
+      [
+        "non-fat",
+        "yogurt"
+      ],
+      [
+        "skim",
+        "yogurt"
+      ]
+    ],
+    "dining_exclude": [
+      "frozen"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (dairy; saturated fat); USDA MyPlate, Dairy Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Choose based on saturated fat; flavored low-fat varieties can have added sugars."
+    }
+  },
+  {
+    "id": "fats_whole_milk",
+    "focus_area": "fats",
+    "habit": "whole_milk",
+    "slot": null,
+    "swap_label": "Choose lower-fat milk",
+    "text": "If you usually drink whole milk, consider reduced-fat or skim milk in cereal or coffee.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "skim milk"
+      ],
+      [
+        "low fat milk"
+      ],
+      [
+        "lowfat milk"
+      ],
+      [
+        "1% milk"
+      ],
+      [
+        "2% milk"
+      ],
+      [
+        "nonfat milk"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (dairy; saturated fat)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "No claim of reduced total calories; dairy score not automatically higher."
+    }
+  },
+  {
+    "id": "fats_bacon_sausage",
+    "focus_area": "fats",
+    "habit": "bacon_sausage",
+    "slot": "breakfast",
+    "swap_label": "Try an alternative breakfast protein",
+    "text": "Try eggs, beans, or another breakfast protein instead of bacon or sausage sometimes.",
+    "needs": "none",
+    "log_categories": [
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "scrambled eggs"
+      ],
+      [
+        "eggs"
+      ],
+      [
+        "egg whites"
+      ],
+      [
+        "black beans"
+      ]
+    ],
+    "dining_exclude": [
+      "bacon",
+      "sausage",
+      "egg roll"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (protein foods; saturated fat)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Breakfast",
+      "equipment": "None if prepared",
+      "caveat": "Turkey or chicken sausage may still be high in sodium or saturated fat; remove automatic equivalence."
+    }
+  },
+  {
+    "id": "fats_fried_chicken",
+    "focus_area": "fats",
+    "habit": "fried_chicken",
+    "slot": null,
+    "swap_label": "Choose non-fried chicken",
+    "text": "When you want chicken, consider grilled or roasted chicken rather than fried chicken.",
+    "needs": "none",
+    "log_categories": [
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "grilled chicken"
+      ],
+      [
+        "roasted chicken"
+      ],
+      [
+        "rotisserie"
+      ],
+      [
+        "chicken thigh"
+      ],
+      [
+        "baked chicken"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "crispy",
+      "tempura",
+      "tenders",
+      "nuggets",
+      "sandwich",
+      "wrap"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (saturated fat); USDA MyPlate, Protein Foods Group",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/takeout",
+      "equipment": "None",
+      "caveat": "Cooking method alone cannot establish fat/sodium; check preparation."
+    }
+  },
+  {
+    "id": "fats_burger",
+    "focus_area": "fats",
+    "habit": "burger",
+    "slot": null,
+    "swap_label": "Try a bean-based burger",
+    "text": "Consider a bean-based burger instead of a beef burger, when available.",
+    "needs": "none",
+    "log_categories": [
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "black bean burger"
+      ],
+      [
+        "veggie burger"
+      ],
+      [
+        "bean",
+        "burger"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "crispy"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (saturated fat); USDA MyPlate, Protein Foods Group",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/takeout",
+      "equipment": "None",
+      "caveat": "Check ingredients and fat profile; avoid automatically labeling veggie burger lower saturated fat."
+    }
+  },
+  {
+    "id": "fats_fries",
+    "focus_area": "fats",
+    "habit": "fries",
+    "slot": null,
+    "swap_label": "Try a baked potato side",
+    "text": "When available, try a baked potato instead of fried potatoes and add toppings you enjoy.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "baked potato"
+      ],
+      [
+        "baked sweet potato"
+      ],
+      [
+        "roasted sweet potato"
+      ],
+      [
+        "roasted potato"
+      ],
+      [
+        "sweet potato"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "fries",
+      "chips"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (saturated fat; vegetables)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/takeout",
+      "equipment": "None",
+      "caveat": "Fat reduction only with comparable toppings and preparation."
+    }
+  },
+  {
+    "id": "fats_cheese_heavy",
+    "focus_area": "fats",
+    "habit": "cheese_heavy",
+    "slot": null,
+    "swap_label": "Try tomato-based pasta sauce",
+    "text": "For pasta, consider tomato sauce in place of cream-based sauce.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "marinara"
+      ],
+      [
+        "red sauce"
+      ],
+      [
+        "pomodoro"
+      ],
+      [
+        "arrabbiata"
+      ],
+      [
+        "tomato",
+        "sauce"
+      ]
+    ],
+    "dining_exclude": [
+      "cream",
+      "alfredo",
+      "vodka"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (saturated fat)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/home",
+      "equipment": "None",
+      "caveat": "Some sauces contain added butter, cream or sodium."
+    }
+  },
+  {
+    "id": "fats_default_nuts_oils",
+    "focus_area": "fats",
+    "habit": null,
+    "slot": null,
+    "swap_label": "Try olive-oil-based dressing",
+    "text": "Consider an olive-oil-based dressing or hummus in place of a creamy dressing.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "vinaigrette"
+      ],
+      [
+        "italian dressing"
+      ],
+      [
+        "balsamic"
+      ],
+      [
+        "olive oil"
+      ],
+      [
+        "hummus"
+      ]
+    ],
+    "dining_exclude": [
+      "ranch",
+      "caesar",
+      "creamy"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (oils; unsaturated fats)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Adding nuts/oil without replacing saturated-fat source may not improve fatty acids ratio."
+    }
+  },
+  {
+    "id": "grains_white_rice",
+    "focus_area": "grains",
+    "habit": "white_rice",
+    "slot": null,
+    "swap_label": "Choose a whole-grain bowl base",
+    "text": "Try brown rice in place of white rice when available; keep the toppings you enjoy.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "brown rice"
+      ],
+      [
+        "wild rice"
+      ],
+      [
+        "quinoa"
+      ],
+      [
+        "farro"
+      ],
+      [
+        "barley"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); USDA MyPlate, Grains Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/home",
+      "equipment": "None if prepared",
+      "caveat": "Quinoa can be another whole-grain option."
+    }
+  },
+  {
+    "id": "grains_white_bread",
+    "focus_area": "grains",
+    "habit": "white_bread",
+    "slot": null,
+    "swap_label": "Choose bread labeled whole wheat",
+    "text": "Keep your usual sandwich filling and try bread that lists whole wheat first instead of white bread.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "whole wheat"
+      ],
+      [
+        "whole grain"
+      ],
+      [
+        "multigrain"
+      ],
+      [
+        "wheat bread"
+      ],
+      [
+        "wheat bun"
+      ],
+      [
+        "wheat tortilla"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); USDA MyPlate, Grains Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/store",
+      "equipment": "None",
+      "caveat": "Multigrain alone does not guarantee whole grain.",
+      "reworded_for_app": "Digits removed (the app shows no numbers); please confirm wording."
+    }
+  },
+  {
+    "id": "grains_pasta",
+    "focus_area": "grains",
+    "habit": "pasta",
+    "slot": null,
+    "swap_label": "Try whole-wheat pasta",
+    "text": "Use whole-wheat pasta with the sauce and toppings you already like.",
+    "needs": "stove",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "whole wheat",
+        "pasta"
+      ],
+      [
+        "whole grain",
+        "pasta"
+      ],
+      [
+        "whole wheat",
+        "penne"
+      ],
+      [
+        "whole wheat",
+        "spaghetti"
+      ]
+    ],
+    "dining_exclude": [
+      "chickpea"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); FDA, How to Understand and Use the Nutrition Facts Label",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Home",
+      "equipment": "Stove",
+      "caveat": "Chickpea pasta should not be assumed to count as whole grain."
+    }
+  },
+  {
+    "id": "grains_cereal",
+    "focus_area": "grains",
+    "habit": "cereal",
+    "slot": "breakfast",
+    "swap_label": "Try oatmeal or whole-grain cereal",
+    "text": "For breakfast, try oats or a cereal with a whole grain listed first in the ingredients.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "oatmeal"
+      ],
+      [
+        "steel cut"
+      ],
+      [
+        "oats"
+      ]
+    ],
+    "dining_exclude": [
+      "cookie",
+      "granola"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); USDA MyPlate, Grains Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "Hot water or microwave for oats",
+      "caveat": "Ingredient statement alone is imperfect proxy for whole-grain contribution."
+    }
+  },
+  {
+    "id": "grains_instant_noodles",
+    "focus_area": "grains",
+    "habit": "instant_noodles",
+    "slot": null,
+    "swap_label": "Try whole-grain noodles when available",
+    "text": "For a noodle meal, look for noodles made with whole wheat and add your favorite toppings.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "whole wheat",
+        "noodles"
+      ],
+      [
+        "whole wheat",
+        "pasta"
+      ],
+      [
+        "whole grain",
+        "noodles"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); FDA, How to Understand and Use the Nutrition Facts Label",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dorm/home",
+      "equipment": "Microwave or stove",
+      "caveat": "Remove oatmeal as a direct substitute for savory ramen; check sodium separately."
+    }
+  },
+  {
+    "id": "grains_default_oatmeal",
+    "focus_area": "grains",
+    "habit": null,
+    "slot": "breakfast",
+    "swap_label": "Try oatmeal at breakfast",
+    "text": "Plain oatmeal is a flexible whole-grain breakfast. Add fruit, nuts, or cinnamon if you like.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "oatmeal"
+      ],
+      [
+        "steel cut"
+      ],
+      [
+        "oats"
+      ]
+    ],
+    "dining_exclude": [
+      "cookie",
+      "granola"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); USDA MyPlate, Grains Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Breakfast",
+      "equipment": "Hot water or microwave",
+      "caveat": "Specify plain oats; no assumption about campus availability."
+    }
+  },
+  {
+    "id": "grains_default_whole_wheat_bread",
+    "focus_area": "grains",
+    "habit": null,
+    "slot": "lunch",
+    "swap_label": "Switch sandwich bread to whole wheat",
+    "text": "At the sandwich counter, ask whether whole-wheat bread is available.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "whole wheat"
+      ],
+      [
+        "whole grain"
+      ],
+      [
+        "multigrain"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); USDA MyPlate, Grains Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall",
+      "equipment": "None",
+      "caveat": "Could deduplicate with ID 12 in final implementation. | Potential duplicate/alternate wording: suppress redundant prompts."
+    }
+  },
+  {
+    "id": "added_sugars_soda",
+    "focus_area": "added_sugars",
+    "habit": "soda",
+    "slot": null,
+    "swap_label": "Choose unsweetened sparkling water",
+    "text": "Try sparkling water or water with lemon in place of regular soda.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [
+      [
+        "sparkling water"
+      ],
+      [
+        "lemon"
+      ],
+      [
+        "lime"
+      ],
+      [
+        "infused water"
+      ]
+    ],
+    "dining_exclude": [
+      "lemonade",
+      "pie",
+      "cake",
+      "compote",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "chicken",
+      "pork",
+      "sausage",
+      "juice",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter",
+      "rice",
+      "pepper",
+      "bar",
+      "shrimp",
+      "fish",
+      "cilantro",
+      "dressing",
+      "vinaigrette"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars; beverages)",
+    "reviewed": true,
+    "review": {
+      "status": "Approved with edit",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "No added sugar when unsweetened."
+    }
+  },
+  {
+    "id": "added_sugars_energy_drink",
+    "focus_area": "added_sugars",
+    "habit": "energy_drink",
+    "slot": null,
+    "swap_label": "Choose a drink without added sugar",
+    "text": "If you want a different drink, try water or unsweetened sparkling water instead of a sugary energy drink.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [
+      [
+        "sparkling water"
+      ],
+      [
+        "infused water"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars; beverages)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Do not treat coffee as equivalent caffeine replacement; avoid encouraging caffeine intake."
+    }
+  },
+  {
+    "id": "added_sugars_sweet_coffee",
+    "focus_area": "added_sugars",
+    "habit": "sweet_coffee",
+    "slot": null,
+    "swap_label": "Try coffee with less syrup",
+    "text": "If you like flavored coffee, ask for less syrup or try cinnamon for flavor.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "coffee"
+      ],
+      [
+        "latte"
+      ]
+    ],
+    "dining_exclude": [
+      "frappe",
+      "mocha",
+      "caramel",
+      "cake",
+      "muffin",
+      "ice cream",
+      "cookie",
+      "rub",
+      "glaze"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars; beverages)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Modify",
+      "setting": "Cafe",
+      "equipment": "None",
+      "caveat": "Vanilla powder or flavored creamers may contain added sugars."
+    }
+  },
+  {
+    "id": "added_sugars_sweetened_yogurt",
+    "focus_area": "added_sugars",
+    "habit": "sweetened_yogurt",
+    "slot": "breakfast",
+    "swap_label": "Try plain yogurt plus fruit",
+    "text": "Try plain yogurt with berries or banana instead of a heavily sweetened flavored yogurt.",
+    "needs": "none",
+    "log_categories": [
+      "dairy",
+      "fruit"
+    ],
+    "dining": [
+      [
+        "plain",
+        "yogurt"
+      ],
+      [
+        "plain",
+        "greek yogurt"
+      ]
+    ],
+    "dining_exclude": [
+      "frozen",
+      "vanilla",
+      "strawberry",
+      "honey"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars; dairy)",
+    "reviewed": true,
+    "review": {
+      "status": "Approved with edit",
+      "date": "2026-11-16",
+      "action_type": "Replace + add",
+      "setting": "Breakfast/snack",
+      "equipment": "None",
+      "caveat": "Compare labels; plain yogurt naturally contains lactose."
+    }
+  },
+  {
+    "id": "added_sugars_candy_dessert",
+    "focus_area": "added_sugars",
+    "habit": "candy_dessert",
+    "slot": null,
+    "swap_label": "Try fruit when you want something sweet",
+    "text": "When a sweet snack sounds good, fruit can be one option to try.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "fresh fruit"
+      ],
+      [
+        "banana"
+      ],
+      [
+        "apple"
+      ],
+      [
+        "orange"
+      ],
+      [
+        "strawberries"
+      ],
+      [
+        "blueberries"
+      ],
+      [
+        "grapes"
+      ],
+      [
+        "melon"
+      ],
+      [
+        "pineapple"
+      ]
+    ],
+    "dining_exclude": [
+      "pie",
+      "cake",
+      "compote",
+      "juice",
+      "chicken",
+      "cobbler",
+      "crisp",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars; fruits)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Optional replacement",
+      "setting": "Snack",
+      "equipment": "None",
+      "caveat": "Deduplicate with fruit ID 2; optional and non-restrictive. | Potential duplicate/alternate wording: suppress redundant prompts."
+    }
+  },
+  {
+    "id": "added_sugars_juice",
+    "focus_area": "added_sugars",
+    "habit": "fruit_drink",
+    "slot": "breakfast",
+    "swap_label": "Choose whole fruit or juice with no added sugar",
+    "text": "If your usual fruit drink has added sugar, try whole fruit or juice with no added sugar instead.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "orange"
+      ],
+      [
+        "apple"
+      ],
+      [
+        "banana"
+      ],
+      [
+        "fresh fruit"
+      ],
+      [
+        "grapefruit"
+      ]
+    ],
+    "dining_exclude": [
+      "juice",
+      "chicken",
+      "pie",
+      "compote",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars; whole fruit)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "100% fruit juice has no added sugar unless extra sugar is added; move generic juice swap to Fruit.",
+      "reworded_for_app": "Digits removed (the app shows no numbers); please confirm wording."
+    }
+  },
+  {
+    "id": "added_sugars_default_water_fruit",
+    "focus_area": "added_sugars",
+    "habit": null,
+    "slot": null,
+    "swap_label": "Choose water with a meal",
+    "text": "Try water or unsweetened sparkling water with a meal where you usually choose a sweetened drink.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [
+      [
+        "sparkling water"
+      ],
+      [
+        "infused water"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars; beverages)",
+    "reviewed": true,
+    "review": {
+      "status": "Approved with edit",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Duplicate of 38 for soda but broader beverage trigger."
+    }
+  },
+  {
+    "id": "sodium_chips",
+    "focus_area": "sodium",
+    "habit": "chips",
+    "slot": "snack",
+    "swap_label": "Try an unsalted crunchy snack",
+    "text": "For a crunchy snack, try unsalted nuts or unsalted popcorn instead of chips.",
+    "needs": "none",
+    "log_categories": [
+      "fruit",
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "unsalted"
+      ],
+      [
+        "popcorn"
+      ],
+      [
+        "almonds"
+      ],
+      [
+        "peanuts"
+      ]
+    ],
+    "dining_exclude": [
+      "chicken",
+      "shrimp",
+      "caramel",
+      "kettle",
+      "salted"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (sodium; snacks)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Snack",
+      "equipment": "None",
+      "caveat": "Fruit is fine but a less close sensory substitute."
+    }
+  },
+  {
+    "id": "sodium_instant_noodles",
+    "focus_area": "sodium",
+    "habit": "instant_noodles",
+    "slot": null,
+    "swap_label": "Use less of the seasoning packet",
+    "text": "When making instant noodles, try using less of the seasoning packet and adding vegetables or other seasonings you like.",
+    "needs": "microwave",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "low sodium"
+      ],
+      [
+        "steamed",
+        "vegetables"
+      ],
+      [
+        "green beans"
+      ],
+      [
+        "broccoli"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (sodium); FDA, Sodium in Your Diet",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Modify",
+      "setting": "Dorm/home",
+      "equipment": "Microwave or stove",
+      "caveat": "Sodium varies; broth change only matters if lower-sodium product used."
+    }
+  },
+  {
+    "id": "sodium_processed_meat",
+    "focus_area": "sodium",
+    "habit": "processed_meat",
+    "slot": null,
+    "swap_label": "Choose a less-processed topping",
+    "text": "Try cooked chicken, beans, or vegetables instead of pepperoni or hot dogs sometimes.",
+    "needs": "none",
+    "log_categories": [
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "roasted chicken"
+      ],
+      [
+        "grilled chicken"
+      ],
+      [
+        "chicken thigh"
+      ],
+      [
+        "black beans"
+      ],
+      [
+        "steamed",
+        "vegetables"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "crispy",
+      "sausage"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (sodium; processed meats)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None if prepared",
+      "caveat": "Eggs and commercially seasoned chicken can also be high in sodium; verify."
+    }
+  },
+  {
+    "id": "sodium_fried_chicken",
+    "focus_area": "sodium",
+    "habit": "fried_chicken",
+    "slot": null,
+    "swap_label": "Choose lower-sodium chicken when available",
+    "text": "Compare chicken options and choose one with less sodium when nutrition information is available.",
+    "needs": "none",
+    "log_categories": [
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "grilled chicken"
+      ],
+      [
+        "roasted chicken"
+      ],
+      [
+        "rotisserie"
+      ],
+      [
+        "chicken thigh"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "crispy",
+      "tempura",
+      "tenders",
+      "nuggets",
+      "sandwich",
+      "wrap"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (sodium)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/store",
+      "equipment": "None",
+      "caveat": "Grilled is not necessarily lower sodium than fried, due to brining and seasoning."
+    }
+  },
+  {
+    "id": "sodium_default_fresh_sides",
+    "focus_area": "sodium",
+    "habit": null,
+    "slot": null,
+    "swap_label": "Choose a vegetable side",
+    "text": "Try vegetables without a salty sauce instead of a heavily seasoned packaged side.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "steamed",
+        "vegetables"
+      ],
+      [
+        "roasted",
+        "vegetables"
+      ],
+      [
+        "green beans"
+      ],
+      [
+        "broccoli"
+      ],
+      [
+        "roasted carrots"
+      ],
+      [
+        "side salad"
+      ],
+      [
+        "spring mix"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "pickled",
+      "pickle"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (sodium); FDA, Sodium in Your Diet",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Do not imply all vegetables or prepared sides are low sodium."
+    }
+  },
+  {
+    "id": "fruit_juice",
+    "focus_area": "fruit",
+    "habit": "juice",
+    "slot": "breakfast",
+    "swap_label": "Choose whole fruit instead of juice",
+    "text": "Try an orange, apple, or banana when you would usually choose juice. Whole fruit also provides fiber.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "orange"
+      ],
+      [
+        "apple"
+      ],
+      [
+        "banana"
+      ],
+      [
+        "fresh fruit"
+      ],
+      [
+        "grapefruit"
+      ]
+    ],
+    "dining_exclude": [
+      "juice",
+      "chicken",
+      "pie",
+      "compote",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (fruits); HEI-2020 whole fruits component (NCI/USDA)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "100% juice contributes to Total Fruits, but not Whole Fruits."
+    }
+  },
+  {
+    "id": "fruit_candy_dessert",
+    "focus_area": "fruit",
+    "habit": "candy_dessert",
+    "slot": null,
+    "swap_label": "Try fruit as a sweet option",
+    "text": "When you want something sweet, consider berries, grapes, or a banana. You can still enjoy your favorite treats.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "fresh fruit"
+      ],
+      [
+        "banana"
+      ],
+      [
+        "apple"
+      ],
+      [
+        "strawberries"
+      ],
+      [
+        "blueberries"
+      ],
+      [
+        "grapes"
+      ],
+      [
+        "melon"
+      ],
+      [
+        "pineapple"
+      ]
+    ],
+    "dining_exclude": [
+      "pie",
+      "cake",
+      "compote",
+      "juice",
+      "chicken",
+      "cobbler",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (fruits)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Optional replacement",
+      "setting": "Snack",
+      "equipment": "None",
+      "caveat": "Avoid framing fruit as morally better than dessert."
+    }
+  },
+  {
+    "id": "fruit_yogurt_or_cereal",
+    "focus_area": "fruit",
+    "habit": "yogurt",
+    "slot": "breakfast",
+    "swap_label": "Top yogurt with fruit",
+    "text": "Add berries, banana, or peaches to yogurt you already enjoy.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "strawberries"
+      ],
+      [
+        "blueberries"
+      ],
+      [
+        "blackberries"
+      ],
+      [
+        "banana"
+      ],
+      [
+        "peach"
+      ],
+      [
+        "fresh fruit"
+      ]
+    ],
+    "dining_exclude": [
+      "pie",
+      "compote",
+      "yogurt",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "chicken",
+      "pork",
+      "sausage",
+      "juice",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (fruits); USDA MyPlate, Fruit Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Approved with edit",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Breakfast/snack",
+      "equipment": "None",
+      "caveat": "Fruit addition; check yogurt for added sugar separately."
+    }
+  },
+  {
+    "id": "fruit_default_breakfast",
+    "focus_area": "fruit",
+    "habit": null,
+    "slot": "breakfast",
+    "swap_label": "Have fruit with breakfast",
+    "text": "A banana, orange, or apple can be an easy breakfast addition, even on a busy morning.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "banana"
+      ],
+      [
+        "apple"
+      ],
+      [
+        "orange"
+      ],
+      [
+        "fresh fruit"
+      ],
+      [
+        "grapefruit"
+      ],
+      [
+        "strawberries"
+      ]
+    ],
+    "dining_exclude": [
+      "juice",
+      "chicken",
+      "pie",
+      "compote",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (fruits); USDA MyPlate, Fruit Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Breakfast",
+      "equipment": "None",
+      "caveat": "Availability varies by dining hall."
+    }
+  },
+  {
+    "id": "vegetables_beans_pizza",
+    "focus_area": "vegetables_beans",
+    "habit": "pizza",
+    "slot": null,
+    "swap_label": "Add a vegetable alongside pizza",
+    "text": "Pair your pizza with a side salad or vegetables, if available.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "side salad"
+      ],
+      [
+        "spring mix"
+      ],
+      [
+        "romaine"
+      ],
+      [
+        "veggie pizza"
+      ],
+      [
+        "baby spinach"
+      ]
+    ],
+    "dining_exclude": [
+      "egg salad",
+      "tuna salad",
+      "chicken salad",
+      "potato salad",
+      "pasta salad"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (vegetables); USDA MyPlate, Vegetable Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dining hall/takeout",
+      "equipment": "None",
+      "caveat": "Vegetable pizza toppings are another option, but not equivalent to a full side."
+    }
+  },
+  {
+    "id": "vegetables_beans_white_rice",
+    "focus_area": "vegetables_beans",
+    "habit": "white_rice",
+    "slot": null,
+    "swap_label": "Add beans to your rice bowl",
+    "text": "Add black beans, chickpeas, or edamame to a rice bowl for more vegetables or plant protein.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts",
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "black beans"
+      ],
+      [
+        "chick peas"
+      ],
+      [
+        "chickpeas"
+      ],
+      [
+        "kidney beans"
+      ],
+      [
+        "edamame"
+      ],
+      [
+        "garbanzo"
+      ],
+      [
+        "cuban black beans"
+      ]
+    ],
+    "dining_exclude": [
+      "green beans"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (vegetables; beans, peas and lentils); HEI-2020 greens and beans component",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dining hall/home",
+      "equipment": "None",
+      "caveat": "HEI legume allocation depends on protein scoring; do not claim every bean addition raises every component."
+    }
+  },
+  {
+    "id": "vegetables_beans_pasta",
+    "focus_area": "vegetables_beans",
+    "habit": "pasta",
+    "slot": null,
+    "swap_label": "Add vegetables to pasta",
+    "text": "Mix spinach, broccoli, or mushrooms into pasta you already enjoy. Frozen vegetables work too.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "baby spinach"
+      ],
+      [
+        "spinach"
+      ],
+      [
+        "broccoli"
+      ],
+      [
+        "roasted vegetables"
+      ],
+      [
+        "sliced mushrooms"
+      ]
+    ],
+    "dining_exclude": [
+      "dip",
+      "artichoke dip"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (vegetables); USDA MyPlate, Vegetable Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Home/dining hall",
+      "equipment": "Microwave or stove if preparing",
+      "caveat": "Mushrooms count toward Total Vegetables, not Greens and Beans."
+    }
+  },
+  {
+    "id": "vegetables_beans_burger",
+    "focus_area": "vegetables_beans",
+    "habit": "burger",
+    "slot": null,
+    "swap_label": "Add vegetables to your burger meal",
+    "text": "Try lettuce and tomato on your burger, or choose a vegetable side when available.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "side salad"
+      ],
+      [
+        "green beans"
+      ],
+      [
+        "spring mix"
+      ],
+      [
+        "romaine"
+      ],
+      [
+        "sliced tomato"
+      ],
+      [
+        "broccoli"
+      ]
+    ],
+    "dining_exclude": [
+      "egg salad",
+      "tuna salad",
+      "chicken salad",
+      "potato salad",
+      "fried"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (vegetables); USDA MyPlate, Vegetable Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add/side replacement",
+      "setting": "Dining hall/takeout",
+      "equipment": "None",
+      "caveat": "Side vegetable more meaningful than minimal topping alone."
+    }
+  },
+  {
+    "id": "vegetables_beans_instant_noodles",
+    "focus_area": "vegetables_beans",
+    "habit": "instant_noodles",
+    "slot": null,
+    "swap_label": "Add vegetables to ramen",
+    "text": "Add frozen mixed vegetables or spinach to your ramen before heating it.",
+    "needs": "microwave",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "steamed",
+        "vegetables"
+      ],
+      [
+        "baby spinach"
+      ],
+      [
+        "broccoli"
+      ],
+      [
+        "green beans"
+      ],
+      [
+        "edamame"
+      ]
+    ],
+    "dining_exclude": [
+      "fried"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (vegetables)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dorm/home",
+      "equipment": "Microwave or stove",
+      "caveat": "Use microwave-safe vessel; follow preparation directions."
+    }
+  },
+  {
+    "id": "vegetables_beans_default_lunch",
+    "focus_area": "vegetables_beans",
+    "habit": null,
+    "slot": "lunch",
+    "swap_label": "Add a vegetable at lunch",
+    "text": "Try a side salad, cooked vegetables, or beans with lunch, wherever you eat.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables",
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "side salad"
+      ],
+      [
+        "spring mix"
+      ],
+      [
+        "black beans"
+      ],
+      [
+        "broccoli"
+      ],
+      [
+        "green beans"
+      ],
+      [
+        "roasted",
+        "vegetables"
+      ],
+      [
+        "steamed",
+        "vegetables"
+      ],
+      [
+        "baby spinach"
+      ]
+    ],
+    "dining_exclude": [
+      "egg salad",
+      "tuna salad",
+      "chicken salad",
+      "potato salad",
+      "pasta salad",
+      "fried"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (vegetables); USDA MyPlate, Vegetable Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Avoid assuming a specific campus menu."
+    }
+  },
+  {
+    "id": "dairy_sweet_coffee",
+    "focus_area": "dairy",
+    "habit": "sweet_coffee",
+    "slot": null,
+    "swap_label": "Add milk or fortified soy to coffee",
+    "text": "If you enjoy coffee, try milk or fortified soy milk in it. A latte can be an option too.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "milk"
+      ],
+      [
+        "latte"
+      ]
+    ],
+    "dining_exclude": [
+      "almond milk",
+      "oat milk",
+      "coconut milk",
+      "milkshake",
+      "cake",
+      "muffin",
+      "ice cream",
+      "cookie",
+      "rub",
+      "glaze",
+      "macaroni",
+      "mac",
+      "nacho",
+      "sauce",
+      "pizza",
+      "burger",
+      "sandwich",
+      "bread",
+      "sticks",
+      "dip",
+      "queso",
+      "pancake",
+      "pancakes",
+      "waffle",
+      "shake"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (dairy and fortified soy alternatives)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Cafe",
+      "equipment": "None",
+      "caveat": "Dairy contribution depends on amount; latte can still contain flavored syrups."
+    }
+  },
+  {
+    "id": "dairy_cereal",
+    "focus_area": "dairy",
+    "habit": "cereal",
+    "slot": "breakfast",
+    "swap_label": "Have milk or fortified soy with cereal",
+    "text": "Try adding milk or fortified soy milk to cereal, or enjoying yogurt alongside it.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "milk"
+      ],
+      [
+        "yogurt"
+      ],
+      [
+        "cottage cheese"
+      ]
+    ],
+    "dining_exclude": [
+      "frozen",
+      "almond milk",
+      "oat milk",
+      "coconut milk",
+      "macaroni",
+      "mac",
+      "nacho",
+      "sauce",
+      "pizza",
+      "burger",
+      "sandwich",
+      "bread",
+      "sticks",
+      "dip",
+      "queso",
+      "pancake",
+      "pancakes",
+      "waffle",
+      "shake"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (dairy and fortified soy alternatives)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Breakfast",
+      "equipment": "None",
+      "caveat": "Fortified soy beverage counts; most other plant milks do not for HEI Dairy."
+    }
+  },
+  {
+    "id": "dairy_default_breakfast",
+    "focus_area": "dairy",
+    "habit": null,
+    "slot": "breakfast",
+    "swap_label": "Try yogurt or milk with breakfast",
+    "text": "Yogurt, milk, or fortified soy milk can be a simple addition to breakfast.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "yogurt"
+      ],
+      [
+        "milk"
+      ],
+      [
+        "cottage cheese"
+      ],
+      [
+        "cheese"
+      ]
+    ],
+    "dining_exclude": [
+      "frozen",
+      "almond milk",
+      "oat milk",
+      "coconut milk",
+      "cheese sauce",
+      "mac and cheese",
+      "cheeseburger",
+      "cheese pizza",
+      "macaroni",
+      "mac",
+      "nacho",
+      "sauce",
+      "pizza",
+      "burger",
+      "sandwich",
+      "bread",
+      "sticks",
+      "dip",
+      "queso",
+      "pancake",
+      "pancakes",
+      "waffle",
+      "shake"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (dairy and fortified soy alternatives); USDA MyPlate, Dairy Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Breakfast",
+      "equipment": "None",
+      "caveat": "Non-dairy yogurts are not automatically equivalent for HEI Dairy."
+    }
+  },
+  {
+    "id": "protein_foods_burger",
+    "focus_area": "protein_foods",
+    "habit": "burger",
+    "slot": null,
+    "swap_label": "Try a bean or soy-based burger",
+    "text": "When available, try a bean-based or soy-based burger instead of a beef burger.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts",
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "black bean burger"
+      ],
+      [
+        "veggie burger"
+      ],
+      [
+        "bean",
+        "burger"
+      ],
+      [
+        "impossible"
+      ],
+      [
+        "beyond"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "crispy"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (protein foods; seafood and plant proteins); HEI-2020 seafood and plant proteins component",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/takeout",
+      "equipment": "None",
+      "caveat": "Not all veggie burgers contain meaningful legumes or soy; check ingredients and sodium."
+    }
+  },
+  {
+    "id": "protein_foods_white_rice",
+    "focus_area": "protein_foods",
+    "habit": "white_rice",
+    "slot": null,
+    "swap_label": "Add beans or tofu to a rice bowl",
+    "text": "Add beans, tofu, or edamame to your bowl for a plant-based protein option.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "black beans"
+      ],
+      [
+        "tofu"
+      ],
+      [
+        "edamame"
+      ],
+      [
+        "chick peas"
+      ],
+      [
+        "chickpeas"
+      ],
+      [
+        "garbanzo"
+      ],
+      [
+        "kidney beans"
+      ]
+    ],
+    "dining_exclude": [
+      "green beans"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (protein foods; seafood and plant proteins)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dining hall/home",
+      "equipment": "None if prepared",
+      "caveat": "HEI legume allocation rules apply."
+    }
+  },
+  {
+    "id": "protein_foods_white_bread",
+    "focus_area": "protein_foods",
+    "habit": "white_bread",
+    "slot": "lunch",
+    "swap_label": "Try hummus or tuna in your sandwich",
+    "text": "Try hummus or tuna as a sandwich filling when available.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts",
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "hummus"
+      ],
+      [
+        "tuna"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "melt"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (protein foods; seafood and plant proteins)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/home",
+      "equipment": "None",
+      "caveat": "Egg counts toward Total Protein Foods, not Seafood and Plant Proteins; omit."
+    }
+  },
+  {
+    "id": "protein_foods_default",
+    "focus_area": "protein_foods",
+    "habit": null,
+    "slot": null,
+    "swap_label": "Include seafood or plant protein in a meal",
+    "text": "Try beans, lentils, tofu, nuts, or fish with a meal you already enjoy.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts",
+      "other_protein"
+    ],
+    "dining": [
+      [
+        "black beans"
+      ],
+      [
+        "lentil"
+      ],
+      [
+        "tofu"
+      ],
+      [
+        "edamame"
+      ],
+      [
+        "chickpeas"
+      ],
+      [
+        "chick peas"
+      ],
+      [
+        "salmon"
+      ],
+      [
+        "tuna"
+      ],
+      [
+        "hummus"
+      ],
+      [
+        "sunflower seeds"
+      ]
+    ],
+    "dining_exclude": [
+      "fried",
+      "green beans"
+    ],
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (protein foods); USDA MyPlate, Protein Foods Group (myplate.gov)",
+    "reviewed": true,
+    "review": {
+      "status": "Revised",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Any",
+      "equipment": "Varies",
+      "caveat": "Eggs are a valid protein food but do not target seafood/plant protein component."
+    }
+  },
+  {
+    "id": "fruit_toast",
+    "focus_area": "fruit",
+    "habit": "toast",
+    "slot": "breakfast",
+    "swap_label": "Add fruit to toast",
+    "text": "Try banana slices or berries with your usual toast.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "banana"
+      ],
+      [
+        "strawberries"
+      ],
+      [
+        "blueberries"
+      ],
+      [
+        "berries"
+      ]
+    ],
+    "dining_exclude": [
+      "juice",
+      "chicken",
+      "pie",
+      "compote",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter",
+      "syrup",
+      "crumble",
+      "sauce",
+      "fritter",
+      "yogurt"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dorm/breakfast",
+      "equipment": "None",
+      "caveat": null,
+      "trigger": "breakfast toast"
+    }
+  },
+  {
+    "id": "fruit_oatmeal",
+    "focus_area": "fruit",
+    "habit": "oatmeal",
+    "slot": "breakfast",
+    "swap_label": "Top oats with fruit",
+    "text": "Add frozen berries, sliced apples, or banana to oatmeal.",
+    "needs": "microwave",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "banana"
+      ],
+      [
+        "strawberries"
+      ],
+      [
+        "blueberries"
+      ],
+      [
+        "apple"
+      ]
+    ],
+    "dining_exclude": [
+      "juice",
+      "chicken",
+      "pie",
+      "compote",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter",
+      "syrup",
+      "crumble",
+      "sauce",
+      "fritter",
+      "yogurt"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dorm/home",
+      "equipment": "Microwave or hot water",
+      "caveat": "Frozen fruit must be ready-to-eat or heated as directed.",
+      "trigger": "oatmeal"
+    }
+  },
+  {
+    "id": "fruit_snack_bar",
+    "focus_area": "fruit",
+    "habit": "snack_bar",
+    "slot": "snack",
+    "swap_label": "Pair a snack with fruit",
+    "text": "Add a clementine, apple, or grapes to a snack you already enjoy.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "apple"
+      ],
+      [
+        "clementine"
+      ],
+      [
+        "grapes"
+      ],
+      [
+        "banana"
+      ],
+      [
+        "orange"
+      ]
+    ],
+    "dining_exclude": [
+      "juice",
+      "chicken",
+      "pie",
+      "compote",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter",
+      "syrup",
+      "crumble",
+      "sauce",
+      "fritter",
+      "yogurt"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "On the go",
+      "equipment": "None",
+      "caveat": null,
+      "trigger": "snack bar"
+    }
+  },
+  {
+    "id": "fruit_fruit_cup",
+    "focus_area": "fruit",
+    "habit": "fruit_cup",
+    "slot": "snack",
+    "swap_label": "Choose fruit packed in water or juice",
+    "text": "When buying fruit cups, look for fruit packed in water or its own juice instead of syrup.",
+    "needs": "none",
+    "log_categories": [
+      "fruit"
+    ],
+    "dining": [
+      [
+        "fruit cup"
+      ],
+      [
+        "mandarin oranges"
+      ],
+      [
+        "fruit salad"
+      ]
+    ],
+    "dining_exclude": [
+      "juice",
+      "chicken",
+      "pie",
+      "compote",
+      "cake",
+      "pudding",
+      "bread",
+      "muffin",
+      "bacon",
+      "pork",
+      "sausage",
+      "cobbler",
+      "crisp",
+      "tart",
+      "glazed",
+      "jam",
+      "jelly",
+      "butter",
+      "syrup",
+      "crumble",
+      "sauce",
+      "fritter",
+      "yogurt"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Store/dorm",
+      "equipment": "None",
+      "caveat": "Check ingredient label; no numeric claims.",
+      "trigger": "sweetened fruit cup",
+      "reworded_for_app": "Digits removed (the app shows no numbers); please confirm wording."
+    }
+  },
+  {
+    "id": "vegetables_beans_tacos",
+    "focus_area": "vegetables_beans",
+    "habit": "tacos",
+    "slot": null,
+    "swap_label": "Add beans or vegetables to tacos",
+    "text": "Add beans, cabbage, lettuce, or peppers to the tacos you already enjoy.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables",
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "black beans"
+      ],
+      [
+        "pinto beans"
+      ],
+      [
+        "cabbage"
+      ],
+      [
+        "pico"
+      ],
+      [
+        "peppers"
+      ]
+    ],
+    "dining_exclude": [
+      "refried"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Restaurant/home",
+      "equipment": "None",
+      "caveat": "Legume allocation rule.",
+      "trigger": "tacos"
+    }
+  },
+  {
+    "id": "vegetables_beans_quesadilla",
+    "focus_area": "vegetables_beans",
+    "habit": "quesadilla",
+    "slot": null,
+    "swap_label": "Add a vegetable to a quesadilla meal",
+    "text": "Try peppers, spinach, or a vegetable side with your quesadilla.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "fajita",
+        "vegetables"
+      ],
+      [
+        "peppers"
+      ],
+      [
+        "spinach"
+      ],
+      [
+        "roasted",
+        "vegetables"
+      ],
+      [
+        "steamed",
+        "vegetables"
+      ]
+    ],
+    "dining_exclude": [
+      "soup"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dining hall/home",
+      "equipment": "None",
+      "caveat": null,
+      "trigger": "quesadilla"
+    }
+  },
+  {
+    "id": "vegetables_beans_instant_rice",
+    "focus_area": "vegetables_beans",
+    "habit": "white_rice",
+    "slot": null,
+    "swap_label": "Mix in canned beans",
+    "text": "Add drained, rinsed canned beans to microwave rice for a more filling bowl.",
+    "needs": "microwave",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "black beans"
+      ],
+      [
+        "pinto beans"
+      ],
+      [
+        "chickpeas"
+      ]
+    ],
+    "dining_exclude": [
+      "refried"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dorm",
+      "equipment": "Microwave",
+      "caveat": "Choose reduced-sodium beans if available; legume allocation rule.",
+      "trigger": "instant rice"
+    }
+  },
+  {
+    "id": "vegetables_beans_fried_rice",
+    "focus_area": "vegetables_beans",
+    "habit": "fried_rice",
+    "slot": null,
+    "swap_label": "Add vegetables to fried rice",
+    "text": "Add frozen peas, carrots, or broccoli to your fried rice.",
+    "needs": "microwave",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "peas"
+      ],
+      [
+        "carrots"
+      ],
+      [
+        "broccoli"
+      ]
+    ],
+    "dining_exclude": [
+      "cake",
+      "soup"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Home",
+      "equipment": "Microwave or stove",
+      "caveat": null,
+      "trigger": "fried rice"
+    }
+  },
+  {
+    "id": "vegetables_beans_sandwich",
+    "focus_area": "vegetables_beans",
+    "habit": "sandwich",
+    "slot": "lunch",
+    "swap_label": "Add vegetables to sandwiches",
+    "text": "Add spinach, tomato, cucumber, or peppers to your usual sandwich.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "spinach"
+      ],
+      [
+        "tomato"
+      ],
+      [
+        "cucumber"
+      ],
+      [
+        "peppers"
+      ],
+      [
+        "lettuce"
+      ]
+    ],
+    "dining_exclude": [
+      "soup",
+      "sauce",
+      "bisque"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": null,
+      "trigger": "sandwich"
+    }
+  },
+  {
+    "id": "vegetables_beans_default_ready_to_eat",
+    "focus_area": "vegetables_beans",
+    "habit": null,
+    "slot": "snack",
+    "swap_label": "Try a ready-to-eat vegetable",
+    "text": "Baby carrots, sliced peppers, or a side salad can fit a no-cook meal.",
+    "needs": "none",
+    "log_categories": [
+      "vegetables"
+    ],
+    "dining": [
+      [
+        "side salad"
+      ],
+      [
+        "garden salad"
+      ],
+      [
+        "baby carrots"
+      ],
+      [
+        "carrot sticks"
+      ],
+      [
+        "sliced cucumbers"
+      ],
+      [
+        "cucumber"
+      ]
+    ],
+    "dining_exclude": [
+      "roasted",
+      "sauteed",
+      "steamed",
+      "fried",
+      "cake",
+      "pasta salad",
+      "potato salad",
+      "soup"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dorm/on the go",
+      "equipment": "None",
+      "caveat": null,
+      "trigger": "no specific food"
+    }
+  },
+  {
+    "id": "grains_flour_tortilla",
+    "focus_area": "grains",
+    "habit": "flour_tortilla",
+    "slot": null,
+    "swap_label": "Try a whole-wheat tortilla",
+    "text": "When making tacos or wraps, choose a whole-wheat tortilla if available.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "whole wheat",
+        "tortilla"
+      ],
+      [
+        "wheat",
+        "tortilla"
+      ],
+      [
+        "whole wheat",
+        "wrap"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Check first ingredient; some labeled wheat are refined.",
+      "trigger": "flour tortilla"
+    }
+  },
+  {
+    "id": "grains_white_toast",
+    "focus_area": "grains",
+    "habit": "white_bread",
+    "slot": "breakfast",
+    "swap_label": "Try whole-grain toast",
+    "text": "Keep your usual toast toppings and choose whole-grain bread when available.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "whole wheat",
+        "bread"
+      ],
+      [
+        "whole grain",
+        "bread"
+      ],
+      [
+        "multigrain"
+      ],
+      [
+        "wheat",
+        "toast"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Breakfast",
+      "equipment": "None",
+      "caveat": null,
+      "trigger": "white toast"
+    }
+  },
+  {
+    "id": "grains_rice_and_beans",
+    "focus_area": "grains",
+    "habit": "rice_and_beans",
+    "slot": null,
+    "swap_label": "Try brown rice with beans",
+    "text": "Keep your usual beans and seasonings, and use brown rice when it fits the meal.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "brown rice"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Home/dining hall",
+      "equipment": "None if prepared",
+      "caveat": "Culturally flexible: white rice remains an option.",
+      "trigger": "white rice with beans"
+    }
+  },
+  {
+    "id": "grains_crackers",
+    "focus_area": "grains",
+    "habit": "crackers",
+    "slot": "snack",
+    "swap_label": "Try whole-grain crackers",
+    "text": "For crackers with cheese or hummus, try a whole-grain version.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "whole grain",
+        "crackers"
+      ],
+      [
+        "wheat",
+        "crackers"
+      ],
+      [
+        "triscuit"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Snack",
+      "equipment": "None",
+      "caveat": "Verify grain composition.",
+      "trigger": "refined crackers"
+    }
+  },
+  {
+    "id": "dairy_smoothie",
+    "focus_area": "dairy",
+    "habit": "smoothie",
+    "slot": null,
+    "swap_label": "Use milk or fortified soy in a smoothie",
+    "text": "If you make smoothies, use milk or fortified soy milk as the liquid base.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Home",
+      "equipment": "Blender",
+      "caveat": "Fortified soy milk counts for HEI Dairy; other alternatives do not necessarily.",
+      "trigger": "fruit smoothie"
+    }
+  },
+  {
+    "id": "dairy_default_snack_yogurt",
+    "focus_area": "dairy",
+    "habit": null,
+    "slot": "snack",
+    "swap_label": "Add yogurt alongside a snack",
+    "text": "Try yogurt with your usual fruit, granola, or snack when it fits your routine.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "greek yogurt"
+      ],
+      [
+        "yogurt"
+      ],
+      [
+        "parfait"
+      ]
+    ],
+    "dining_exclude": [
+      "frozen"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "On the go",
+      "equipment": "None",
+      "caveat": "Refrigeration required for most yogurts.",
+      "trigger": "snack without dairy"
+    }
+  },
+  {
+    "id": "dairy_oatmeal",
+    "focus_area": "dairy",
+    "habit": "oatmeal",
+    "slot": "breakfast",
+    "swap_label": "Try milk or fortified soy in oatmeal",
+    "text": "When making oats, try milk or fortified soy milk for a creamy texture.",
+    "needs": "microwave",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "soy milk"
+      ],
+      [
+        "milk"
+      ]
+    ],
+    "dining_exclude": [
+      "chocolate",
+      "almond",
+      "oat milk",
+      "coconut",
+      "buttermilk",
+      "shake"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dorm/home",
+      "equipment": "Microwave or hot water",
+      "caveat": "Dairy component varies by added amount.",
+      "trigger": "oatmeal prepared with water"
+    }
+  },
+  {
+    "id": "protein_foods_pasta_lentils",
+    "focus_area": "protein_foods",
+    "habit": "pasta",
+    "slot": null,
+    "swap_label": "Add lentils to pasta sauce",
+    "text": "Mix cooked or canned lentils into tomato sauce for pasta.",
+    "needs": "microwave",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "lentil"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Home",
+      "equipment": "Stove or microwave",
+      "caveat": "Rinse canned lentils; legume allocation rules.",
+      "trigger": "pasta"
+    }
+  },
+  {
+    "id": "protein_foods_tacos",
+    "focus_area": "protein_foods",
+    "habit": "tacos",
+    "slot": null,
+    "swap_label": "Use beans or lentils as taco filling",
+    "text": "Try black beans or lentils in tacos, or combine them with your usual filling.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "black beans"
+      ],
+      [
+        "pinto beans"
+      ],
+      [
+        "lentil"
+      ]
+    ],
+    "dining_exclude": [
+      "refried"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace/add",
+      "setting": "Home/dining hall",
+      "equipment": "None if prepared",
+      "caveat": null,
+      "trigger": "taco filling"
+    }
+  },
+  {
+    "id": "protein_foods_instant_noodles",
+    "focus_area": "protein_foods",
+    "habit": "instant_noodles",
+    "slot": null,
+    "swap_label": "Add tofu or edamame to ramen",
+    "text": "Add tofu or edamame to ramen for a plant-protein option.",
+    "needs": "microwave",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "tofu"
+      ],
+      [
+        "edamame"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "Dorm/home",
+      "equipment": "Microwave or stove",
+      "caveat": "Follow safe reheating directions.",
+      "trigger": "ramen"
+    }
+  },
+  {
+    "id": "protein_foods_default_nuts_seeds",
+    "focus_area": "protein_foods",
+    "habit": null,
+    "slot": "snack",
+    "swap_label": "Try nuts or seeds as a snack",
+    "text": "A pack of unsalted nuts or seeds is an easy shelf-stable snack.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "almonds"
+      ],
+      [
+        "peanuts"
+      ],
+      [
+        "sunflower seeds"
+      ],
+      [
+        "trail mix"
+      ]
+    ],
+    "dining_exclude": [
+      "chicken",
+      "cookie",
+      "candy"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Add",
+      "setting": "On the go",
+      "equipment": "None",
+      "caveat": "Allergy-sensitive; do not recommend if known allergy.",
+      "trigger": "snack without protein foods"
+    }
+  },
+  {
+    "id": "protein_foods_chicken_sandwich",
+    "focus_area": "protein_foods",
+    "habit": "chicken_sandwich",
+    "slot": "lunch",
+    "swap_label": "Try tuna or salmon in a sandwich",
+    "text": "When practical, try canned salmon or tuna in a sandwich or wrap.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "tuna"
+      ],
+      [
+        "salmon"
+      ]
+    ],
+    "dining_exclude": [
+      "sushi",
+      "roll"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dorm/home",
+      "equipment": "None",
+      "caveat": "Food-safety storage; check sodium of canned products.",
+      "trigger": "chicken sandwich"
+    }
+  },
+  {
+    "id": "fats_butter_toast",
+    "focus_area": "fats",
+    "habit": "butter_toast",
+    "slot": "breakfast",
+    "swap_label": "Try peanut butter or nut butter",
+    "text": "For toast, try peanut butter or another nut or seed butter instead of butter.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "peanut butter"
+      ],
+      [
+        "almond butter"
+      ],
+      [
+        "sunflower butter"
+      ]
+    ],
+    "dining_exclude": [
+      "cookie",
+      "cup",
+      "pie"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Breakfast",
+      "equipment": "None",
+      "caveat": "Some products include palm oil; allergy-sensitive.",
+      "trigger": "butter on toast"
+    }
+  },
+  {
+    "id": "fats_default_cooking_oil",
+    "focus_area": "fats",
+    "habit": null,
+    "slot": null,
+    "swap_label": "Use olive or canola oil in place of butter",
+    "text": "When cooking, consider olive or canola oil instead of butter.",
+    "needs": "stove",
+    "log_categories": [],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Home",
+      "equipment": "Stove",
+      "caveat": "Aim for substitution, not simply adding extra oil.",
+      "trigger": "butter in cooking"
+    }
+  },
+  {
+    "id": "fats_creamy_dressing",
+    "focus_area": "fats",
+    "habit": "creamy_dressing",
+    "slot": null,
+    "swap_label": "Try an oil-based vinaigrette",
+    "text": "Consider a vinaigrette instead of a cream-based dressing when available.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [
+      [
+        "vinaigrette"
+      ],
+      [
+        "italian dressing"
+      ],
+      [
+        "balsamic"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dining hall/home",
+      "equipment": "None",
+      "caveat": "Check product ingredients.",
+      "trigger": "creamy salad dressing"
+    }
+  },
+  {
+    "id": "fats_cheese_sandwich",
+    "focus_area": "fats",
+    "habit": "cheese_sandwich",
+    "slot": "lunch",
+    "swap_label": "Try hummus as a spread",
+    "text": "Try hummus on a sandwich instead of a cheese-based spread.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [
+      [
+        "hummus"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Not all hummus products have comparable fat profile.",
+      "trigger": "cheese-heavy sandwich"
+    }
+  },
+  {
+    "id": "fats_margarine_spread",
+    "focus_area": "fats",
+    "habit": "margarine_spread",
+    "slot": "breakfast",
+    "swap_label": "Try avocado on toast",
+    "text": "If you enjoy savory toast, try mashed avocado in place of a butter-based spread.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [
+      [
+        "avocado"
+      ],
+      [
+        "guacamole"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Breakfast",
+      "equipment": "None",
+      "caveat": "Avocado is perishable and can be costly.",
+      "trigger": "palm-oil-rich spread"
+    }
+  },
+  {
+    "id": "sodium_canned_beans",
+    "focus_area": "sodium",
+    "habit": "canned_beans",
+    "slot": null,
+    "swap_label": "Choose lower-sodium canned beans",
+    "text": "When available, choose reduced-sodium canned beans or rinse regular canned beans.",
+    "needs": "none",
+    "log_categories": [
+      "beans_fish_nuts"
+    ],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Modify/replace",
+      "setting": "Dorm/home",
+      "equipment": "Sink",
+      "caveat": "Rinsing can reduce sodium but not eliminate it.",
+      "trigger": "canned beans"
+    }
+  },
+  {
+    "id": "sodium_sauced_bowl",
+    "focus_area": "sodium",
+    "habit": "sauced_bowl",
+    "slot": null,
+    "swap_label": "Use less sauce and more aromatics",
+    "text": "Try less salty sauce on your rice bowl and add garlic, ginger, lime, or herbs.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Modify",
+      "setting": "Home/dining hall",
+      "equipment": "None",
+      "caveat": "Some sauces are sodium-dense even when not tasting very salty.",
+      "trigger": "salty sauce on rice bowl"
+    }
+  },
+  {
+    "id": "sodium_canned_soup",
+    "focus_area": "sodium",
+    "habit": "canned_soup",
+    "slot": null,
+    "swap_label": "Compare lower-sodium soup options",
+    "text": "If soup is a go-to meal, compare labels and choose a lower-sodium option you enjoy.",
+    "needs": "microwave",
+    "log_categories": [],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Store/dorm",
+      "equipment": "Microwave",
+      "caveat": "Check sodium per comparable serving.",
+      "trigger": "canned soup"
+    }
+  },
+  {
+    "id": "sodium_chips_popcorn",
+    "focus_area": "sodium",
+    "habit": "chips",
+    "slot": "snack",
+    "swap_label": "Try unsalted popcorn",
+    "text": "Choose unsalted or lightly salted popcorn instead of a salty packaged snack.",
+    "needs": "none",
+    "log_categories": [
+      "whole_grains"
+    ],
+    "dining": [
+      [
+        "popcorn"
+      ]
+    ],
+    "dining_exclude": [
+      "chicken",
+      "shrimp",
+      "caramel",
+      "kettle"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Snack",
+      "equipment": "None",
+      "caveat": "Prepackaged lightly salted varies; verify label.",
+      "trigger": "salty snacks"
+    }
+  },
+  {
+    "id": "sodium_dipping_sauce",
+    "focus_area": "sodium",
+    "habit": "dipping_sauce",
+    "slot": null,
+    "swap_label": "Ask for sauce on the side",
+    "text": "When ordering takeout, ask for sauce on the side so you can choose how much to use.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Modify",
+      "setting": "Restaurant/takeout",
+      "equipment": "None",
+      "caveat": "Does not guarantee reduction without less use.",
+      "trigger": "takeout dipping sauce"
+    }
+  },
+  {
+    "id": "added_sugars_sweet_tea",
+    "focus_area": "added_sugars",
+    "habit": "sweet_tea",
+    "slot": null,
+    "swap_label": "Choose unsweetened tea",
+    "text": "Try unsweetened iced tea and add lemon or fruit for flavor.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [
+      [
+        "unsweetened",
+        "tea"
+      ],
+      [
+        "unsweet",
+        "tea"
+      ]
+    ],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Cafe/dining hall",
+      "equipment": "None",
+      "caveat": null,
+      "trigger": "sweetened iced tea"
+    }
+  },
+  {
+    "id": "added_sugars_flavored_oatmeal",
+    "focus_area": "added_sugars",
+    "habit": "flavored_oatmeal",
+    "slot": "breakfast",
+    "swap_label": "Try plain oats with fruit",
+    "text": "Try plain oatmeal with banana, berries, or cinnamon instead of a heavily sweetened packet.",
+    "needs": "microwave",
+    "log_categories": [
+      "whole_grains",
+      "fruit"
+    ],
+    "dining": [
+      [
+        "oatmeal"
+      ]
+    ],
+    "dining_exclude": [
+      "brown sugar",
+      "maple",
+      "cookie",
+      "bar"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Dorm/home",
+      "equipment": "Microwave or hot water",
+      "caveat": "Plain oats naturally contain no added sugar; toppings vary.",
+      "trigger": "sweetened oatmeal packet"
+    }
+  },
+  {
+    "id": "added_sugars_sweet_cereal",
+    "focus_area": "added_sugars",
+    "habit": "sweet_cereal",
+    "slot": "breakfast",
+    "swap_label": "Try lower-added-sugar cereal",
+    "text": "Compare Nutrition Facts labels and try a cereal with less added sugar that you enjoy.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [
+      [
+        "cheerios"
+      ],
+      [
+        "bran flakes"
+      ],
+      [
+        "shredded wheat"
+      ],
+      [
+        "corn flakes"
+      ]
+    ],
+    "dining_exclude": [
+      "honey nut",
+      "frosted"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Store/dining hall",
+      "equipment": "None",
+      "caveat": "Could also target whole grains if verified.",
+      "trigger": "sweetened breakfast cereal"
+    }
+  },
+  {
+    "id": "added_sugars_sports_drink",
+    "focus_area": "added_sugars",
+    "habit": "sports_drink",
+    "slot": null,
+    "swap_label": "Choose water for routine hydration",
+    "text": "For everyday hydration, water can replace a sweetened sports drink.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Sports drinks may be appropriate for prolonged intense activity; avoid universal substitution.",
+      "trigger": "sweetened sports drink"
+    }
+  },
+  {
+    "id": "added_sugars_flavored_milk",
+    "focus_area": "added_sugars",
+    "habit": "flavored_milk",
+    "slot": null,
+    "swap_label": "Try plain milk or fortified soy",
+    "text": "If you usually choose sweetened flavored milk, try plain milk or unsweetened fortified soy milk.",
+    "needs": "none",
+    "log_categories": [
+      "dairy"
+    ],
+    "dining": [
+      [
+        "soy milk"
+      ],
+      [
+        "milk"
+      ]
+    ],
+    "dining_exclude": [
+      "chocolate",
+      "strawberry",
+      "almond",
+      "oat milk",
+      "coconut",
+      "buttermilk",
+      "shake"
+    ],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Replace",
+      "setting": "Any",
+      "equipment": "None",
+      "caveat": "Compare fortification and sugar labels.",
+      "trigger": "sweetened flavored milk"
+    }
+  },
+  {
+    "id": "added_sugars_bubble_tea",
+    "focus_area": "added_sugars",
+    "habit": "bubble_tea",
+    "slot": null,
+    "swap_label": "Try less syrup or a smaller sweetness setting",
+    "text": "If you enjoy bubble tea, consider ordering it with less added sweetener.",
+    "needs": "none",
+    "log_categories": [],
+    "dining": [],
+    "dining_exclude": [],
+    "source": "Nutrition team proposal, LLHS swap review 2026-11-16",
+    "reviewed": false,
+    "review": {
+      "status": "Proposed",
+      "date": "2026-11-16",
+      "action_type": "Modify",
+      "setting": "Cafe",
+      "equipment": "None",
+      "caveat": "Toppings and bases may also contain added sugar.",
+      "trigger": "sweetened bubble tea"
+    }
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "_comment": [
+    "Weekly Wing challenges. ONE challenge for every Wing per study week —",
+    "the challenge is picked deterministically by study-week number, never",
+    "at random, so every Wing in a cohort sees the same prompt that week.",
+    "The team can edit titles, descriptions, metric choices and targets",
+    "without a code change. If the pool is empty, the Wings screen",
+    "quietly hides the challenge card.",
+    "",
+    "Fields per challenge:",
+    "  id            unique short id (used only in logs / tests)",
+    "  title         what the student sees as the headline",
+    "  description   one supportive sentence under the title",
+    "  metric        one of: balanced_meals | veg_forward_meals",
+    "                      | activity_minutes | participation_days",
+    "  target        target the Wing's combined count needs to reach",
+    "  unit          singular unit word for the progress text"
+  ],
+  "challenges": [
+    {
+      "id": "rainbow-plates",
+      "title": "Rainbow Week",
+      "description": "Everyone's veg-forward meals add up — can your Wing colour in the week together?",
+      "metric": "veg_forward_meals",
+      "target": 20,
+      "unit": "meals"
+    },
+    {
+      "id": "move-together",
+      "title": "Move Together",
+      "description": "Add up any movement, however small — walks between class count as much as a workout.",
+      "metric": "activity_minutes",
+      "target": 300,
+      "unit": "minutes"
+    },
+    {
+      "id": "show-up-days",
+      "title": "Show-Up Week",
+      "description": "A quiet goal: as many days as your Wing can where someone logged something.",
+      "metric": "participation_days",
+      "target": 14,
+      "unit": "days"
+    },
+    {
+      "id": "balanced-plates",
+      "title": "Balanced Plates",
+      "description": "Any meal with a few food groups on the plate counts — collect them together.",
+      "metric": "balanced_meals",
+      "target": 25,
+      "unit": "meals"
+    }
+  ]
+}

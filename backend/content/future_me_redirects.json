@@ -1,0 +1,73 @@
+{
+  "_comment": "Future Me scope redirects — nutrition team 2026-11-06, Follow-ups item 2 ('Topics Future Me should not answer'). For each topic, scope_check() in backend/coach_kb.py matches the question against the triggers, and Future Me replies with the text below instead of calling the LLM. Every text is short, kind, and points at the right next step (study team, healthcare professional, counseling, or emergency services). The study team's wording rules (avoid list) apply — tests/test_wording_rules.py scans every text here on every run.",
+  "topics": {
+    "medical": {
+      "description": "Diagnosis, treatment, or condition-specific dietary recommendations.",
+      "trigger_examples": [
+        "what should I eat with high blood pressure?",
+        "what's the best diet for diabetes?",
+        "I was just diagnosed with celiac — what do I do?"
+      ],
+      "text": "That's a medical question, so it's one for a healthcare professional or TAMU University Health Services rather than me. For anything about a diagnosis, treatment, or a condition-specific plan, the study team can point you to the right person. I can help with everyday eating habits: adding vegetables, choosing whole grains, or swapping to a lower-sodium option when you shop."
+    },
+    "calories": {
+      "description": "Calorie counting or specific calorie targets.",
+      "trigger_examples": [
+        "how many calories a day?",
+        "what's a safe calorie count?",
+        "should I be counting calories?"
+      ],
+      "text": "LLHS doesn't do calorie counting. Calorie needs vary by person, and this program is about the habit, not the number. For specific calorie targets, the study team or a dietitian is the right place. I can help with practical swaps: what to add at breakfast, how to read a label for sodium or added sugars, or a lower-fat cooking swap you can try this week."
+    },
+    "medications": {
+      "description": "Questions about the use, effectiveness, safety, dosing, or interactions of medications and supplements.",
+      "trigger_examples": [
+        "should I take a multivitamin?",
+        "how much vitamin D do I need?",
+        "does metformin interact with any foods?"
+      ],
+      "text": "Questions about medications or supplements, whether to take one, how much, interactions, or safety, are outside what Future Me can help with. A pharmacist, your prescriber, or TAMU University Health Services is the right place for those. I can help with everyday eating habits and the heart-health content covered in the LLHS curriculum."
+    },
+    "eating_support": {
+      "description": "Restrictive eating, purging, compensatory behaviors, or concerns about food and body image.",
+      "trigger_examples": [
+        "I want to stop eating so much",
+        "I feel guilty after eating",
+        "I keep skipping dinner"
+      ],
+      "text": "That sounds like a lot to carry, and it's not something I'd want to answer with a quick tip. LLHS is a habit-based program, so skipping meals, cutting out food groups, or going very low on food isn't something Future Me would ever suggest. For anything like this, eating patterns, how food feels for you, body-image thoughts, please reach out to the LLHS study team or TAMU University Health Services Counseling & Mental Health (979-845-4427). After hours, you can call the Texas A&M HelpLine at 979-845-2700. They're the right people to talk this through with. I'm here for food-habit questions whenever you want them."
+    },
+    "weight": {
+      "description": "Weight-loss plans, calorie targets, or restrictive dieting advice.",
+      "trigger_examples": [
+        "how do I lose weight?",
+        "what's a good calorie deficit?",
+        "can you give me a weight-loss plan?"
+      ],
+      "text": "LLHS is a habit-based program and doesn't give advice about weight loss or calorie targets. Calorie needs vary by person, and that's one the study team or a dietitian can handle. I'm happy to help with the habit side: building a balanced plate, adding a food group you enjoy, or picking between two labels at the store."
+    },
+    "specialized_diets": {
+      "description": "Ketogenic, detox, fasting, or other restrictive or therapeutic diets.",
+      "trigger_examples": [
+        "should I try keto?",
+        "what's the best detox cleanse?",
+        "is intermittent fasting good for me?"
+      ],
+      "text": "Specialised diets, such as keto, detox, fasting, and other restrictive or therapeutic approaches, are outside what Future Me can help with. If you want to explore one for a specific health reason, the study team or a registered dietitian is the right place. I can help with the heart-health habits LLHS is built around: whole grains, vegetables, beans, lower sodium, less added sugar, and fats like olive oil and nuts."
+    },
+    "urgent": {
+      "description": "Symptoms or situations requiring immediate medical attention.",
+      "trigger_examples": [
+        "I'm having chest pain",
+        "I'm having trouble breathing",
+        "I think I'm having an allergic reaction"
+      ],
+      "text": "If this is an emergency, please call 911 right away, or go to the nearest emergency room. For urgent symptoms that aren't an emergency, TAMU University Health Services (979-458-8250) or a 24-hour nurse line is the right place. Future Me can help with everyday eating habits once things are safe, but not with anything urgent or medical."
+    }
+  },
+  "boundary_notes": [
+    "Future Me never diagnoses a condition, interprets lab results, or presents itself as a healthcare professional.",
+    "Questions about study procedures, technical issues, or participant concerns go to the study team.",
+    "FDA Daily Values the app may quote are general reference values for a 2,000-calorie diet, never personal targets."
+  ]
+}

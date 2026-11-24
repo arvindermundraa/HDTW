@@ -1,0 +1,9 @@
+video_id,video_title,ambassador_name,living_situation,eating_setting,cooks_or_not,other_tags,notes
+,,,dorm,dining_hall,no,,
+,,,dorm,dining_hall,no,,
+,,,apartment,at_home,yes,,
+,,,apartment,at_home,yes,,
+,,,apartment,restaurant_takeout,no,,
+,,,commuter,someone_else_prepares,no,,
+,,,family_home,someone_else_prepares,no,,
+,,,greek_house,dining_hall,no,,

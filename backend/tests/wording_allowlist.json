@@ -1,0 +1,30 @@
+{
+  "_comment": "Per-file allow-list for wording_rules.AVOID hits that the wording check should ignore. Each entry pins ONE match: the file (repo-relative), the lowercased avoid phrase, and the reason a human reviewed it and decided it's fine. Everything else in a hit list is a real fix. Nutrition team 2026-11-06, item 3 ('Feedback wording'). Tightly scoped: if the surrounding text changes, re-review.",
+  "allowed": [
+    {
+      "file": "backend/content/games.json",
+      "phrase": "should",
+      "reason": "A Plan Your Week scenario choice ('Cook it anyway, it \"should\" be fine') puts 'should' in the student's own thought-voice to mark an assumption they're questioning; it's a choice the student picks, not app feedback."
+    },
+    {
+      "file": "backend/content/games.json",
+      "phrase": "must",
+      "reason": "A Menu Challenge scenario choice (\"Cereal A — the front says 'multigrain' so it must count\") puts 'must' in the student's own thought-voice as an assumption being challenged; it's a choice the student picks, not app feedback."
+    },
+    {
+      "file": "backend/content/weeks/week2.json",
+      "phrase": "not enough",
+      "reason": "Barrier label 'Not enough time' is one of the barrier options the student self-reports in the Week 2 planning step. It's a label the student picks to describe their own situation, not feedback from the app."
+    },
+    {
+      "file": "backend/week2_planning.py",
+      "phrase": "not enough",
+      "reason": "A key in the _BARRIER_SUMMARY_PHRASE lookup table — the key is the student-facing barrier label that the student self-selected (see allow-list entry for week2.json). The mapped VALUE ('you're short on time') is what the student reads in the planning summary."
+    },
+    {
+      "file": "backend/twin_profile.py",
+      "phrase": "too much",
+      "reason": "Behavioral-twin REASONS dict entry 'Takes too much time' is one of the reason options a student self-selects to tell the twin why a suggested step didn't fit. Same pattern as the Week 2 'Not enough time' barrier label: the label describes the student's own situation, not feedback from the app."
+    }
+  ]
+}

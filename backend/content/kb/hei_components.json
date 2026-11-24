@@ -1,0 +1,145 @@
+[
+  {
+    "id": "total_fruits",
+    "title": "Fruits basics",
+    "topic": "food_group",
+    "hei_component": "total_fruits",
+    "curriculum_area": null,
+    "tags": ["fruit", "fruits", "juice", "berries", "apple", "banana", "snack"],
+    "text": "Fruit counts whether it's fresh, frozen, canned or dried. The Dietary Guidelines suggest most young adults make room for more fruit across the day. Easy adds: a banana or apple on the way to class, berries on oatmeal or yogurt, or fruit from the dining hall as a side.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (fruits); USDA MyPlate, Fruit Group (myplate.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "whole_fruits",
+    "title": "Whole fruit vs. juice",
+    "topic": "food_group",
+    "hei_component": "whole_fruits",
+    "curriculum_area": null,
+    "tags": ["whole fruit", "juice", "fiber", "fibre", "smoothie", "fruit"],
+    "text": "Whole fruit (fresh, frozen, canned or dried, not juice) keeps the fiber that juice loses. The Dietary Guidelines recommend that most of the fruit you have be whole fruit. If you like juice, pairing it with a piece of whole fruit is an easy swap.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (fruits); HEI-2020 component definitions (NCI/USDA)",
+    "reviewed": false
+  },
+  {
+    "id": "total_vegetables",
+    "title": "Vegetables basics",
+    "topic": "food_group",
+    "hei_component": "total_vegetables",
+    "curriculum_area": null,
+    "tags": ["vegetable", "vegetables", "veggies", "salad", "side", "frozen"],
+    "text": "All vegetables count: fresh, frozen or canned, raw or cooked. Most young adults have fewer vegetables than the Dietary Guidelines recommend. A simple habit is adding one vegetable to a meal you already eat, like a side salad, roasted vegetables from the hot line, or frozen vegetables stirred into pasta or rice.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (vegetables); USDA MyPlate, Vegetable Group (myplate.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "greens_beans",
+    "title": "Greens and beans",
+    "topic": "food_group",
+    "hei_component": "greens_beans",
+    "curriculum_area": null,
+    "tags": ["greens", "beans", "legumes", "lentils", "spinach", "kale", "chickpeas", "dark green"],
+    "text": "This HEI component covers dark-green vegetables (like spinach, broccoli, kale and romaine) and beans, peas and lentils. Easy adds: spinach in a wrap or omelet, black beans in a burrito bowl, chickpeas on a salad, or lentil soup. Canned beans count, and rinsing them is a quick habit.",
+    "source": "HEI-2020 component definitions (NCI/USDA); Dietary Guidelines for Americans, 2020–2025, vegetable subgroups",
+    "reviewed": false
+  },
+  {
+    "id": "whole_grains",
+    "title": "Whole grains basics",
+    "topic": "food_group",
+    "hei_component": "whole_grains",
+    "curriculum_area": null,
+    "tags": ["whole grain", "whole grains", "brown rice", "oats", "oatmeal", "whole wheat", "quinoa", "bread", "grain"],
+    "text": "Whole grains keep all parts of the grain kernel. Brown rice, oats and oatmeal, quinoa, popcorn, whole-wheat bread and whole-wheat pasta are all whole grains. The Dietary Guidelines suggest making at least half your grains whole. On a label, look for \"whole\" as the first word in the ingredient list, like \"whole wheat flour\".",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); USDA MyPlate, Grains Group (myplate.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "dairy",
+    "title": "Dairy and fortified soy",
+    "topic": "food_group",
+    "hei_component": "dairy",
+    "curriculum_area": null,
+    "tags": ["dairy", "milk", "yogurt", "cheese", "soy milk", "calcium", "lactose"],
+    "text": "The dairy group includes milk, yogurt, cheese and fortified soy milk or soy yogurt. Lactose-free milk and fortified soy alternatives count too. Easy adds: yogurt with fruit at breakfast, milk with cereal, or a soy latte.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (dairy); USDA MyPlate, Dairy Group (myplate.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "total_protein_foods",
+    "title": "Protein foods",
+    "topic": "food_group",
+    "hei_component": "total_protein_foods",
+    "curriculum_area": null,
+    "tags": ["protein", "meat", "chicken", "eggs", "tofu", "beans", "nuts", "fish"],
+    "text": "Protein foods include meat, poultry, eggs, seafood, beans, peas, lentils, nuts, seeds and soy products like tofu. Variety matters more than any single choice. Pairing each meal with a protein you enjoy helps meals feel satisfying.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (protein foods); USDA MyPlate, Protein Foods Group (myplate.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "seafood_plant_proteins",
+    "title": "Seafood and plant proteins",
+    "topic": "food_group",
+    "hei_component": "seafood_plant_proteins",
+    "curriculum_area": null,
+    "tags": ["seafood", "fish", "salmon", "tuna", "nuts", "seeds", "beans", "tofu", "plant protein", "peanut butter"],
+    "text": "This HEI component counts seafood plus plant proteins: beans, peas, lentils, nuts, seeds and soy. The Dietary Guidelines encourage seafood a couple of times a week and plant proteins often. Easy ideas: a tuna or salmon sandwich, peanut butter on whole-grain toast, edamame, or a bean chili.",
+    "source": "HEI-2020 component definitions (NCI/USDA); Dietary Guidelines for Americans, 2020–2025, protein subgroups",
+    "reviewed": false
+  },
+  {
+    "id": "fatty_acids",
+    "title": "Healthy fats (fatty acids)",
+    "topic": "food_group",
+    "hei_component": "fatty_acids",
+    "curriculum_area": null,
+    "tags": ["fat", "fats", "healthy fats", "olive oil", "avocado", "nuts", "oil", "butter", "fatty acids"],
+    "text": "The Fatty Acids component looks at the balance of unsaturated fats (from foods like nuts, seeds, avocado, fish and oils such as olive or canola) compared with saturated fats. Choosing oils in place of butter now and then, or adding nuts or avocado, shifts that balance in a heart-healthy direction.",
+    "source": "HEI-2020 component definitions (NCI/USDA); Dietary Guidelines for Americans, 2020–2025, Chapter 1 (oils)",
+    "reviewed": false
+  },
+  {
+    "id": "refined_grains",
+    "title": "Refined grains and swaps",
+    "topic": "food_group",
+    "hei_component": "refined_grains",
+    "curriculum_area": null,
+    "tags": ["refined grains", "white bread", "white rice", "pasta", "tortilla", "crackers", "swap"],
+    "text": "Refined grains (like white bread, white rice and many crackers and tortillas) have had part of the kernel removed. They still fit in meals. A simple habit is swapping one refined grain for a whole grain when it's easy, like brown rice at the grain bar or a whole-wheat wrap.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (grains); HEI-2020 component definitions (NCI/USDA)",
+    "reviewed": false
+  },
+  {
+    "id": "sodium",
+    "title": "Sodium and salt",
+    "topic": "food_group",
+    "hei_component": "sodium",
+    "curriculum_area": null,
+    "tags": ["sodium", "salt", "salty", "chips", "soup", "processed", "seasoning", "blood pressure"],
+    "text": "Most sodium comes from packaged and restaurant foods rather than the salt shaker. Heart-healthy swaps: flavor food with herbs, spices, lemon or salsa; choose fresh or frozen vegetables; rinse canned beans; and try a fruit or unsalted nuts as a snack in place of chips now and then. Small swaps add up.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (sodium); HEI-2020 component definitions (NCI/USDA)",
+    "reviewed": false
+  },
+  {
+    "id": "added_sugars",
+    "title": "Added sugars",
+    "topic": "food_group",
+    "hei_component": "added_sugars",
+    "curriculum_area": null,
+    "tags": ["sugar", "added sugars", "soda", "sweet", "dessert", "energy drink", "candy", "drinks"],
+    "text": "Added sugars are sugars put into foods and drinks during processing or preparation; the sugar naturally in fruit and milk isn't counted. Sweetened drinks are the biggest source for many young adults. Easy swaps: water or sparkling water alongside a sweet drink, unsweetened tea, or fruit for something sweet.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (added sugars); HEI-2020 component definitions (NCI/USDA)",
+    "reviewed": false
+  },
+  {
+    "id": "saturated_fats",
+    "title": "Saturated fats",
+    "topic": "food_group",
+    "hei_component": "saturated_fats",
+    "curriculum_area": null,
+    "tags": ["saturated fat", "saturated", "butter", "cheese", "fried", "bacon", "pizza", "fat"],
+    "text": "Saturated fat is found in foods like butter, cheese, fatty and processed meats, and many fried and baked foods. Heart-healthy swaps: grilled in place of fried now and then, olive or canola oil in place of butter, and beans or chicken as a pizza or taco topping.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (saturated fat); HEI-2020 component definitions (NCI/USDA)",
+    "reviewed": false
+  }
+]

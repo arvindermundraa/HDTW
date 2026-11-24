@@ -1,0 +1,134 @@
+[
+  {
+    "id": "planning_healthy_eating",
+    "title": "Planning for healthy eating",
+    "topic": "curriculum",
+    "hei_component": null,
+    "curriculum_area": "planning",
+    "tags": ["plan", "planning", "week", "schedule", "busy", "prep", "meal prep", "time"],
+    "text": "Planning ahead makes healthy eating easier on a busy schedule. Look at your week, note which meals happen on campus and which at home, and keep a few easy staples on hand (frozen vegetables, oats, canned beans, eggs, fruit). Batch-cooking one grain and one protein can cover several meals.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 3 (young adults); USDA MyPlate, Plan Healthy Meals (myplate.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "applying_nutrition_information",
+    "title": "Reading nutrition labels",
+    "topic": "curriculum",
+    "hei_component": null,
+    "curriculum_area": "applying",
+    "tags": ["label", "labels", "nutrition facts", "ingredients", "daily value", "dv", "read", "package"],
+    "text": "On a Nutrition Facts label, start with the serving size, then use the percent Daily Value column to see whether a food has a little or a lot of a nutrient. Check the ingredient list too: ingredients are listed from most to least, so \"whole wheat\" first means a whole grain is the main ingredient.",
+    "source": "U.S. Food and Drug Administration, How to Understand and Use the Nutrition Facts Label (fda.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "assembling_balanced_meals",
+    "title": "Building a balanced plate",
+    "topic": "curriculum",
+    "hei_component": null,
+    "curriculum_area": "assembling",
+    "tags": ["balanced", "plate", "myplate", "meal", "half", "build", "assemble"],
+    "text": "MyPlate is a flexible guide: fill about half your plate with vegetables and fruit, about a quarter with grains (ideally whole), and about a quarter with protein, plus dairy or fortified soy on the side. It's a pattern to aim for across the day, not a rule for every plate.",
+    "source": "USDA MyPlate (myplate.gov); Dietary Guidelines for Americans, 2020–2025, Chapter 1",
+    "reviewed": false
+  },
+  {
+    "id": "dining_hall_tips",
+    "title": "Eating well in the dining hall",
+    "topic": "college",
+    "hei_component": null,
+    "curriculum_area": "assembling",
+    "tags": ["dining hall", "dining", "sbisa", "commons", "buffet", "campus", "cafeteria", "lunch", "dinner"],
+    "text": "In the dining hall, take a lap before you choose. Start with the salad bar or a vegetable side, pick a protein from the hot line, and add a whole grain from the grain bar if there's one. Fruit makes an easy side or dessert. The Build a Meal screen in this app uses today's real menu.",
+    "source": "USDA MyPlate, Eating Away From Home (myplate.gov); Dietary Guidelines for Americans, 2020–2025",
+    "reviewed": false
+  },
+  {
+    "id": "meal_plan_tips",
+    "title": "Making the most of a meal plan",
+    "topic": "college",
+    "hei_component": null,
+    "curriculum_area": "planning",
+    "tags": ["meal plan", "swipes", "dining dollars", "campus", "budget"],
+    "text": "With a meal plan, think about which meals you'll eat on campus each day and use those for your most balanced meals. Grab a piece of fruit or a yogurt on the way out for a later snack. On days you're off campus, a few staples at home fill the gaps.",
+    "source": "USDA MyPlate, Plan Healthy Meals (myplate.gov); Dietary Guidelines for Americans, 2020–2025, Chapter 3",
+    "reviewed": false
+  },
+  {
+    "id": "budget_swaps",
+    "title": "Cheap healthy swaps",
+    "topic": "college",
+    "hei_component": null,
+    "curriculum_area": "planning",
+    "tags": ["cheap", "budget", "money", "affordable", "grocery", "frozen", "canned", "save"],
+    "text": "Eating well on a budget: frozen and canned vegetables and fruit are as nutritious as fresh and last longer; dry or canned beans, oats, brown rice, eggs and peanut butter are low-cost staples; and store brands work just as well. Buying what you'll use this week saves money.",
+    "source": "USDA MyPlate, Healthy Eating on a Budget (myplate.gov); Dietary Guidelines for Americans, 2020–2025",
+    "reviewed": false
+  },
+  {
+    "id": "high_fiber_breakfast",
+    "title": "Easy high-fibre breakfasts",
+    "topic": "college",
+    "hei_component": "whole_grains",
+    "curriculum_area": "assembling",
+    "tags": ["breakfast", "fiber", "fibre", "high fiber", "high fibre", "oatmeal", "cereal", "morning"],
+    "text": "Fibre-rich breakfasts combine a whole grain with fruit or nuts: oatmeal with berries, whole-grain toast with peanut butter and banana, a whole-grain cereal with milk and fruit, or yogurt with fruit and a sprinkle of granola. Most dining halls have oatmeal and fruit at breakfast.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 (dietary fiber, grains); USDA MyPlate (myplate.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "snacks_between_classes",
+    "title": "Snacks between classes",
+    "topic": "college",
+    "hei_component": null,
+    "curriculum_area": "planning",
+    "tags": ["snack", "snacks", "between classes", "hungry", "backpack", "study"],
+    "text": "Snacks can add food groups to your day. Easy backpack options: fruit, a handful of nuts, trail mix, whole-grain crackers with peanut butter, or yogurt. Pairing a fruit or vegetable with a protein helps a snack keep you going.",
+    "source": "USDA MyPlate, Snacks (myplate.gov); Dietary Guidelines for Americans, 2020–2025",
+    "reviewed": false
+  },
+  {
+    "id": "eating_out",
+    "title": "Ordering when you eat out",
+    "topic": "college",
+    "hei_component": null,
+    "curriculum_area": "applying",
+    "tags": ["restaurant", "fast food", "eating out", "order", "menu", "takeout"],
+    "text": "When eating out, look for a vegetable you can add (a side salad, veggies on a bowl or sandwich), choose grilled or baked options sometimes, and ask for sauces on the side so you choose how much. Water or unsweetened drinks are an easy default.",
+    "source": "USDA MyPlate, Eating Away From Home (myplate.gov); Dietary Guidelines for Americans, 2020–2025",
+    "reviewed": false
+  },
+  {
+    "id": "move_guideline",
+    "title": "Physical activity basics",
+    "topic": "move",
+    "hei_component": null,
+    "curriculum_area": null,
+    "tags": ["activity", "exercise", "move", "walk", "workout", "steps", "minutes"],
+    "text": "The Physical Activity Guidelines for Americans suggest adults aim for about 150 minutes of moderate activity a week, plus muscle-strengthening activity on two days. Any movement counts: walking to class, taking stairs, a bike ride, or a pickup game. Consistency matters more than intensity.",
+    "source": "U.S. Department of Health and Human Services, Physical Activity Guidelines for Americans, 2nd edition (health.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "sleep_basics",
+    "title": "Sleep basics",
+    "topic": "sleep",
+    "hei_component": null,
+    "curriculum_area": null,
+    "tags": ["sleep", "rest", "tired", "bedtime", "hours", "nap"],
+    "text": "Most adults do best with 7 or more hours of sleep a night. A regular bedtime and wake time, a wind-down routine, and keeping screens out of bed are simple habits that help. Sleep reference values in this app are still being finalised by the study team.",
+    "source": "Centers for Disease Control and Prevention, Sleep and Sleep Disorders: How Much Sleep Do I Need? (cdc.gov)",
+    "reviewed": false
+  },
+  {
+    "id": "support_resources",
+    "title": "Getting support",
+    "topic": "safety",
+    "hei_component": null,
+    "curriculum_area": null,
+    "tags": ["stress", "guilt", "restrict", "struggle", "anxious", "binge", "help", "support"],
+    "text": "If eating ever feels stressful or restrictive, be gentle with yourself. LLHS is about building habits, never about weight or restriction. Talking with someone you trust, the study team, or campus counseling and health services can help.",
+    "source": "LLHS study protocol (safety and support guidance)",
+    "reviewed": false
+  }
+]

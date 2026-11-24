@@ -1,0 +1,214 @@
+{
+  "_comment": "Week 1 workflow content. From docs/week1_spec.md. The weekly workflow engine (backend/weekly_workflow.py) reads this file and serves it through /api/weekly-workflow. Every step defines its type, display copy and completion rule — the engine never hard-codes copy. 'draft': true marks copy the team should replace before the flag flips to 'on'. 'video_id': null is the signal for the frontend to render a calm 'Video coming soon' card with Continue, so the flow never blocks on missing content.",
+  "week": 1,
+  "title": "Your first step",
+  "summary": "A connected learning experience: see your starting point, pick a focus, make one small, specific plan.",
+  "sequence": ["overview_video", "feedback", "focus_selection", "mini_lecture", "reflection", "goal_and_plan"],
+  "phases": {
+    "p1": {
+      "label": "Learn and choose",
+      "steps": ["overview_video", "feedback", "focus_selection"]
+    },
+    "p2": {
+      "label": "Reflect and plan",
+      "steps": ["mini_lecture", "reflection", "goal_and_plan"]
+    }
+  },
+  "steps": {
+    "overview_video": {
+      "type": "video",
+      "label": "Overview video",
+      "title": "Why this matters now",
+      "summary": "A short intro to Life's Essential 8 and why nutrition during these years matters. The video ends by introducing your baseline recalls and the feedback you'll see next.",
+      "video_id": null,
+      "video_url": null,
+      "captions_url": null,
+      "duration_hint": "about 6 minutes",
+      "points": 10,
+      "cta_next_label": "See my baseline feedback",
+      "draft": true
+    },
+    "feedback": {
+      "type": "feedback",
+      "label": "Your baseline feedback",
+      "title": "Your baseline, in your words",
+      "intro": "Based on the two days you recorded, here are areas where you're already close to the Dietary Guidelines, and areas with room to grow.",
+      "lead_in": "Two days is an estimate, not a full picture. The next step is picking one area to try first.",
+      "data_source": "focus_area_candidates",
+      "shows_numbers": false,
+      "points": 15,
+      "cta_next_label": "Choose my focus area",
+      "draft": false
+    },
+    "focus_selection": {
+      "type": "focus_selection",
+      "label": "Choose your focus area",
+      "title": "Pick one area to work on",
+      "subtitle": "You can change this after your next check-in. The other areas stay visible on Eat.",
+      "route": "/focus-areas",
+      "completion_rule": "focus_area_set",
+      "points": 15,
+      "cta_next_label": "Open focus areas",
+      "draft": false
+    },
+    "mini_lecture": {
+      "type": "video",
+      "label": "Mini-lecture",
+      "title": "Learn more about your focus area",
+      "summary": "A short lecture on what your focus area includes, why it matters for your heart, and small ways to improve.",
+      "video_id_by_area": {
+        "fruit": null,
+        "vegetables_beans": null,
+        "grains": null,
+        "dairy": null,
+        "protein_foods": null,
+        "fats": null,
+        "sodium": null,
+        "added_sugars": null
+      },
+      "video_url_by_area": {
+        "fruit": null,
+        "vegetables_beans": null,
+        "grains": null,
+        "dairy": null,
+        "protein_foods": null,
+        "fats": null,
+        "sodium": null,
+        "added_sugars": null
+      },
+      "captions_url_by_area": {
+        "fruit": null,
+        "vegetables_beans": null,
+        "grains": null,
+        "dairy": null,
+        "protein_foods": null,
+        "fats": null,
+        "sodium": null,
+        "added_sugars": null
+      },
+      "coming_soon_body": "Your mini-lecture is being finished. When it's ready, it will show up right here with captions. You can continue — the next step waits for your reflection, not a video.",
+      "duration_hint": "about 5 minutes",
+      "points": 10,
+      "cta_next_label": "Reflect on where to start",
+      "draft": true
+    },
+    "reflection": {
+      "type": "reflection",
+      "label": "Reflecting on your starting point",
+      "title": "Reflecting on your starting point",
+      "intro_text": "Here's how close your eating in this area is to the Dietary Guidelines. This is based on the two days you recorded.",
+      "focus_kind_by_area": {
+        "fruit": "adequacy",
+        "vegetables_beans": "adequacy",
+        "grains": "adequacy",
+        "dairy": "adequacy",
+        "protein_foods": "adequacy",
+        "fats": "moderation",
+        "sodium": "moderation",
+        "added_sugars": "moderation"
+      },
+      "focus_word_overrides": {
+        "fats": "saturated fat",
+        "sodium": "sodium",
+        "added_sugars": "added sugars"
+      },
+      "prompts": [
+        {
+          "id": "p1_behind",
+          "label": "Look at what's behind the result",
+          "variant_by_focus_kind": {
+            "adequacy": "Think about the two days you recorded. When did {focus} show up in your meals and snacks, if at all?",
+            "moderation": "Think about the two days you recorded. When did foods higher in {focus} show up in your meals, snacks, and drinks, if at all?"
+          },
+          "response_type": "multi_select",
+          "options": [
+            "Breakfast",
+            "Lunch",
+            "Dinner",
+            "Snacks",
+            "Drinks",
+            "It rarely showed up",
+            "This isn't part of how I eat"
+          ],
+          "optional_text": true,
+          "optional_text_label": "Anything you want to add (optional)",
+          "optional_text_max_length": 500
+        },
+        {
+          "id": "p2_room",
+          "label": "Find the room to move",
+          "prompt": "The space left on the bar shows where this area has room to grow. Where in your day could a small change fit most easily?",
+          "response_type": "single_select",
+          "options": ["Breakfast", "Lunch", "Dinner", "Snacks", "Drinks", "Not sure yet"],
+          "carries_to": "goal_and_plan.occasion",
+          "not_sure_option": "Not sure yet"
+        },
+        {
+          "id": "p3_working",
+          "label": "Notice what's working",
+          "prompt": "What's one thing in your eating that's already working?",
+          "response_type": "text",
+          "max_length": 500,
+          "placeholder": "A strength you'd like to keep"
+        }
+      ],
+      "completion_message_template": "Thanks. {occasion} is a good place to look. Next, you'll pick one small change and plan when you'll try it.",
+      "not_sure_yet_message": "Thanks for reflecting. When you're ready to pick a spot, your focus area will help you narrow it down. Next, you'll pick one small change and plan when you'll try it.",
+      "points": 20,
+      "cta_next_label": "Set my goal and plan",
+      "draft": false
+    },
+    "goal_and_plan": {
+      "type": "goal_and_plan",
+      "label": "Set your goal and plan",
+      "title": "A small, specific goal",
+      "intro": "Build on what you reflected on. Keep it small and specific.",
+      "goal_prompt": "I will…",
+      "goal_placeholder": "A behavior you want to try, in your own words",
+      "goal_max_length": 200,
+      "plan_prompt": "When / where will you try it?",
+      "plan_placeholder": "The moment this will happen",
+      "plan_max_length": 200,
+      "route": "/focus-areas",
+      "uses_carried": ["focus_area", "occasion"],
+      "completion_rule": "goal_and_plan_set",
+      "points": 25,
+      "cta_next_label": "Save my goal and plan",
+      "draft": false,
+      "examples": {
+        "fruit": {
+          "goal": "I will add fruit to breakfast on weekday mornings.",
+          "plan": "When I prepare breakfast before class, I will add a banana or frozen berries."
+        },
+        "vegetables_beans": {
+          "goal": "I will include a vegetable or beans at dinner on weeknights.",
+          "plan": "When I plate dinner on weeknights, I will add a serving of vegetables first."
+        },
+        "grains": {
+          "goal": "I will choose a whole-grain option at lunch when it's available.",
+          "plan": "When I pick a sandwich or wrap, I will choose whole-grain bread when it's offered."
+        },
+        "dairy": {
+          "goal": "I will add dairy or a fortified alternative to breakfast.",
+          "plan": "When I make breakfast, I will add yogurt or a glass of milk."
+        },
+        "protein_foods": {
+          "goal": "I will include seafood, beans, or nuts in a meal twice a week.",
+          "plan": "When I shop at the start of the week, I will pick up canned tuna or beans so one meal includes them."
+        },
+        "fats": {
+          "goal": "I will swap one source of saturated fat for an unsaturated one each week.",
+          "plan": "When I cook with butter, I will try olive oil instead."
+        },
+        "sodium": {
+          "goal": "I will choose a lower-sodium snack on busy afternoons.",
+          "plan": "When I pack a snack, I will choose fresh fruit or unsalted nuts instead of chips."
+        },
+        "added_sugars": {
+          "goal": "I will drink one fewer sugar-sweetened drink per day.",
+          "plan": "When I'd normally buy a soda, I will choose water, sparkling water, or unsweetened tea instead."
+        }
+      }
+    }
+  }
+}

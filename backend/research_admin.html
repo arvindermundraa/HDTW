@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLHS Research Admin</title>
+<style>
+  :root { --bg:#faf9f6; --card:#f3f1ea; --ink:#2b2e2b; --muted:#6b6f68; --brand:#76896a; --line:#e2dfd5;
+          --ok:#3f7a4a; --warn:#9a6a14; --bad:#a3413a; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1b1d1b; --card:#252825; --ink:#ecebe6; --muted:#a3a69f;
+          --brand:#9bb08e; --line:#383b37; --ok:#7fbf8a; --warn:#d9a94a; --bad:#e08a82; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.45 system-ui, -apple-system, sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { font-size:22px; margin:0 0 4px; } h2 { font-size:16px; margin:0 0 12px; }
+  p.sub { color:var(--muted); margin:0 0 20px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  label { display:block; font-size:12px; color:var(--muted); margin-bottom:4px; }
+  input, select { font:inherit; color:inherit; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  button { font:inherit; border:0; border-radius:8px; padding:8px 14px; background:var(--brand); color:#fff; cursor:pointer; }
+  button.secondary { background:transparent; color:var(--ink); border:1px solid var(--line); }
+  button:disabled { opacity:.5; cursor:default; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; }
+  .row > div { min-width:180px; }
+  .table-wrap { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:13px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; white-space:nowrap; }
+  td.wrap { white-space:normal; min-width:220px; }
+  .pill { display:inline-block; padding:1px 8px; border-radius:999px; font-size:12px; border:1px solid currentColor; }
+  .ready, .imported { color:var(--ok); } .exists, .not_selected, .open { color:var(--warn); } .unmatched, .out_of_window { color:var(--bad); } .finished { color:var(--ok); }
+  .msg { margin-top:10px; } .msg.err { color:var(--bad); } .msg.ok { color:var(--ok); }
+  .muted { color:var(--muted); } .hidden { display:none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>LLHS Research Admin</h1>
+  <p class="sub">Sign in, link participants to ASA24 usernames, then upload the ASA24 <b>Totals</b> CSV to score HEI-2020
+    (NCI macro v1.0, per-person: recalls summed, then scored once).</p>
+
+  <section id="signin">
+    <h2>1. Sign in</h2>
+    <form id="loginForm" class="row">
+      <div><label for="email">Researcher email</label><input id="email" type="email" autocomplete="username" required></div>
+      <div><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
+      <button type="submit">Sign in</button>
+    </form>
+    <details style="margin-top:10px"><summary class="muted">Use shared key instead</summary>
+      <div class="row" style="margin-top:8px">
+        <div style="flex:1"><label for="key">RESEARCH_API_KEY (kept only in this tab)</label>
+          <input id="key" type="password" autocomplete="off" style="width:100%"></div>
+        <button id="connect" type="button">Connect</button>
+      </div>
+    </details>
+    <div id="keyMsg" class="msg"></div>
+  </section>
+  <p id="whoami" class="muted hidden"></p>
+
+  <div id="app" class="hidden">
+    <section>
+      <h2>2. Participants &amp; ASA24 usernames</h2>
+      <div class="row">
+        <div><label for="linkEmail">Participant</label><select id="linkEmail"></select></div>
+        <div><label for="linkUser">ASA24 username</label><input id="linkUser" placeholder="e.g. llhs0012"></div>
+        <button id="linkBtn">Save link</button>
+      </div>
+      <div id="linkMsg" class="msg"></div>
+      <p id="recallSummary" class="muted" style="margin:12px 0 0"></p>
+      <div class="table-wrap" style="margin-top:12px">
+        <table><thead><tr><th>Name</th><th>Email</th><th>ASA24 username</th><th>Food recall</th><th>Assessments imported</th><th>Test account</th><th></th></tr></thead>
+          <tbody id="participants"></tbody></table>
+      </div>
+    </section>
+
+    <section>
+      <h2>ASA24 accounts</h2>
+      <p class="muted" style="margin:0 0 12px">Create respondent accounts on the ASA24 researcher site, then paste them here, one
+        <code>username,password</code> per line. Each student is given the next free account when they create their
+        LLHS account, and sees its login in the app. Passwords are stored encrypted and never shown on this page.</p>
+      <form id="acctForm" class="row" style="align-items:stretch">
+        <div style="flex:1; min-width:240px"><label for="acctText">Accounts to add</label>
+          <textarea id="acctText" rows="4" style="width:100%; font:13px ui-monospace,Menlo,monospace; color:inherit; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:8px 10px" placeholder="llhs0001,Password1&#10;llhs0002,Password2" autocomplete="off"></textarea></div>
+        <div style="display:flex; align-items:flex-end"><button type="submit">Add accounts</button></div>
+      </form>
+      <div id="acctMsg" class="msg"></div>
+      <p id="acctCounts" class="muted" style="margin:12px 0 0"></p>
+      <details style="margin-top:8px"><summary class="muted">Show all accounts</summary>
+        <div class="table-wrap" style="margin-top:8px"><table>
+          <thead><tr><th>ASA24 username</th><th>Given to</th><th>When</th></tr></thead>
+          <tbody id="accts"></tbody></table></div>
+      </details>
+    </section>
+
+    <section id="researchersSection" class="hidden">
+      <h2>Researcher accounts (admins)</h2>
+      <form id="addResearcher" class="row">
+        <div><label for="rEmail">Email</label><input id="rEmail" type="email" required></div>
+        <div><label for="rName">Name</label><input id="rName" required></div>
+        <div><label for="rPass">Temporary password (10+ chars)</label><input id="rPass" type="password" minlength="10" autocomplete="new-password" required></div>
+        <div><label for="rRole">Role</label><select id="rRole"><option value="staff">Staff</option><option value="admin">Admin</option></select></div>
+        <button type="submit">Add researcher</button>
+      </form>
+      <div id="rMsg" class="msg"></div>
+      <div class="table-wrap" style="margin-top:12px"><table>
+        <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last sign-in</th><th></th></tr></thead>
+        <tbody id="researchers"></tbody></table></div>
+    </section>
+
+    <section>
+      <h2>3. Upload ASA24 Totals CSV</h2>
+      <div class="row">
+        <div><label for="file">Totals file (.csv)</label><input id="file" type="file" accept=".csv,text/csv"></div>
+        <div><label for="atype">Assessment point</label>
+          <select id="atype">
+            <option value="baseline">Baseline (day 1)</option><option value="checkin_1">Week 4 check-in</option>
+            <option value="checkin_2">Week 8 check-in</option>
+          </select></div>
+        <div><label><input id="overwrite" type="checkbox"> Replace existing scores for this point</label></div>
+        <button id="previewBtn" disabled>Preview</button>
+      </div>
+      <div id="uploadMsg" class="msg"></div>
+      <div id="previewWrap" class="hidden" style="margin-top:12px">
+        <p id="counts" class="muted"></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th></th><th>ASA24 username</th><th>Participant</th><th>Status</th><th>Recalls</th><th>Total</th><th>Notes</th></tr></thead>
+          <tbody id="preview"></tbody></table></div>
+        <div class="row" style="margin-top:12px"><button id="importBtn">Import selected</button>
+          <span class="muted">Only rows marked <b>ready</b> can be imported. Scores are never shown to participants as numbers.</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Download scores</h2>
+      <p class="muted" style="margin:0 0 12px">Every imported HEI-2020 assessment as a CSV for analysis: one row per participant per
+        assessment point, with the 13 component scores, the total, how many recalls were combined and their dates, upload
+        warnings, and the food-group amounts the scores came from. Keep it private: it has names and emails.
+        <b>Accounts flagged as test (Lab Test Wing) are excluded by default.</b></p>
+      <div class="row">
+        <button id="exportBtn">Download scores (CSV)</button>
+        <label class="muted" style="display:flex; gap:6px; align-items:center">
+          <input type="checkbox" id="exportIncludeTest"> Include test accounts
+        </label>
+      </div>
+      <div id="exportMsg" class="msg"></div>
+    </section>
+
+    <section>
+      <h2>5. Lab Test Wing</h2>
+      <p class="muted" style="margin:0 0 12px">For the Oct-27 lab test: add TAMU accounts here to drop them into the
+        "Lab Test Wing" group and flag them as test accounts. Flagged accounts are excluded from every research export
+        and analysis count. Lab members must sign up on the app with their TAMU email first, then paste their email
+        below.</p>
+      <div id="labWingInfo" class="muted" style="margin-bottom:10px">—</div>
+      <div class="row" style="align-items:flex-end">
+        <div style="flex:1"><label for="labWingEmail">TAMU email</label>
+          <input id="labWingEmail" type="email" placeholder="student@tamu.edu" style="width:100%"></div>
+        <button id="labWingAddBtn">Add to Lab Test Wing</button>
+      </div>
+      <div id="labWingMsg" class="msg"></div>
+      <div class="table-wrap" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Email</th><th>Name</th><th>Test flag</th><th></th></tr></thead>
+          <tbody id="labWingMembers"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Moderation
+        <span id="modBadge" class="pill" style="margin-left:8px; color:var(--brand); display:none">0 pending</span>
+      </h2>
+      <p class="muted" style="margin:0 0 12px">
+        Approve or reject Wing posts before they're visible to other students. Images are already re-encoded
+        and stripped of EXIF/GPS; captions have passed the automatic text filter. <b>Every post needs human
+        approval</b>: the auto-check only annotates. This tab refreshes every <b>15 s</b> so you can moderate
+        live during the lab test.
+      </p>
+      <div class="row">
+        <button id="modRefreshBtn" class="secondary">Refresh now</button>
+        <label class="muted" style="display:flex; gap:6px; align-items:center">
+          <input type="checkbox" id="modAutoRefresh" checked> Auto-refresh (15 s)
+        </label>
+      </div>
+      <div id="modMsg" class="msg"></div>
+      <div id="modList" style="display:grid; gap:12px; margin-top:12px"></div>
+    </section>
+
+    <section>
+      <h2>6. Test feedback</h2>
+      <p class="muted" style="margin:0 0 12px">Everything lab-test accounts send via the in-app "Send feedback" button
+        on Wings. Only visible here (never to students). CSV columns: time, email, screen, device, rating, what-doing,
+        what-happened.</p>
+      <div class="row">
+        <button id="labFbRefreshBtn" class="secondary">Refresh</button>
+        <button id="labFbExportBtn">Download CSV</button>
+      </div>
+      <div id="labFbMsg" class="msg"></div>
+      <div class="table-wrap" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Time</th><th>Email</th><th>Screen</th><th>Device</th><th>Rating</th><th>What doing</th><th>What happened</th></tr></thead>
+          <tbody id="labFbRows"><tr><td colspan="7" class="muted">Nothing yet.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. From your meals — rules engine vs AI engine</h2>
+      <p class="muted" style="margin:0 0 12px">
+        Future Me's "From your meals" card is computed by two engines: the deterministic <b>rules</b> engine
+        (food lexicon + reviewed swap table) and the <b>AI</b> engine (TAMU AI names the student's regulars from
+        their own log text and picks among the same reviewed swaps and today's real menu; every pick is
+        re-verified server-side). Participants see the engine the server's <code>TWIN_ENGINE</code> setting names
+        (<span id="twinEngineSetting">…</span>). The rules engine is recorded every day; the AI engine is recorded
+        whenever it runs — every day when <code>TWIN_ENGINE=llm</code>, or on demand with the button below (which
+        spends that participant's own TAMU AI credit). Compare here, then converge on one. Nothing here is shown
+        to students.
+      </p>
+      <div class="row">
+        <div><label for="twinUser">Participant</label><select id="twinUser"><option value="">All participants</option></select></div>
+        <div><label for="twinDays">Days</label><select id="twinDays"><option>7</option><option selected>14</option><option>30</option></select></div>
+        <button id="twinRefreshBtn" class="secondary">Refresh</button>
+        <button id="twinRecomputeBtn">Run both engines now for this participant</button>
+      </div>
+      <p id="twinSummary" class="muted" style="margin:12px 0 0"></p>
+      <div id="twinMsg" class="msg"></div>
+      <div class="table-wrap" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Day</th><th>Participant</th><th>Shown</th><th>Rules: regulars</th><th>Rules: swap</th>
+            <th>AI: regulars</th><th>AI: swap</th><th>Agree</th></tr></thead>
+          <tbody id="twinRows"><tr><td colspan="8" class="muted">Nothing yet.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>9. Behavioral twin — diet, activity and sleep</h2>
+      <p class="muted" style="margin:0 0 12px">
+        One profile per participant across food, movement and sleep (never combined into a score). The twin
+        <b>asks</b> about patterns it notices (a meal regular, quieter weekdays, irregular bedtimes, a weekday
+        squeeze across domains) and only uses what the participant confirms; steps come from the reviewed library
+        (<code>content/twin_library.json</code>) and the swap table, chosen by readable rules; reasons for
+        "Not for me" / "Didn't fit" become constraints. Below: the study-wide evaluation, then one participant's
+        profile, what they said and why, and today's steps with the factors that chose each — rate them to build
+        the appropriateness measure. <code>TWIN_ONLY_REVIEWED=true</code> limits participants to reviewed steps.
+      </p>
+      <div class="row">
+        <div><label for="twinEvalDays">Days</label><select id="twinEvalDays"><option>7</option><option>14</option><option selected>30</option><option>90</option></select></div>
+        <div><label for="twinEvalTest">Test accounts</label><select id="twinEvalTest"><option value="false" selected>Exclude</option><option value="true">Include</option></select></div>
+        <button id="twinEvalBtn" class="secondary">Refresh evaluation</button>
+      </div>
+      <div id="twinEvalMsg" class="msg"></div>
+      <div id="twinEval" class="muted" style="margin-top:12px">Nothing yet.</div>
+      <hr style="margin:20px 0">
+      <div class="row">
+        <div><label for="twinProfUser">Participant</label><select id="twinProfUser"><option value="">Pick one</option></select></div>
+        <button id="twinProfBtn" class="secondary">Load profile</button>
+      </div>
+      <div id="twinProfMsg" class="msg"></div>
+      <div id="twinProf" style="margin-top:12px"></div>
+    </section>
+  </div>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const store = {
+    get: (k) => { try { return sessionStorage.getItem(k) || ""; } catch { return ""; } },
+    set: (k, v) => { try { v ? sessionStorage.setItem(k, v) : sessionStorage.removeItem(k); } catch {} },
+  };
+  let token = store.get("llhs.researchToken");
+  let key = store.get("llhs.researchKey");
+  let me = null;
+  let csvText = "";
+
+  async function call(path, opts = {}) {
+    const auth = token ? { Authorization: "Bearer " + token } : key ? { "X-Research-Key": key } : {};
+    const res = await fetch("/api" + path, { ...opts, headers: { "Content-Type": "application/json", ...auth, ...(opts.headers || {}) } });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const d = body.detail;
+      throw new Error(Array.isArray(d) ? d.map((x) => x.msg).join("; ") : d || `Request failed (${res.status})`);
+    }
+    return body;
+  }
+  const show = (el, text, cls) => { el.className = "msg " + (cls || ""); el.textContent = text; };
+
+  // "finished" = the participant tapped "I finished" in the app: their
+  // recall is on ASA24 and waiting for the Totals download + upload below.
+  function recallCell(r) {
+    if (!r || r.state === "complete") return '<span class="muted">all done</span>';
+    const count = r.recalls_needed ? ` (${r.recalls_done || 0} of ${r.recalls_needed} done)` : "";
+    const text = { finished: "finished" + count + ", upload results", open: "open, due " + esc(r.due_by) + count, upcoming: "opens later" }[r.state] || esc(r.state);
+    return `${esc(r.label)}: <span class="pill ${esc(r.state)}">${text}</span>`;
+  }
+
+  async function loadParticipants() {
+    const ps = await call("/research/participants");
+    const waiting = ps.filter((p) => p.recall && p.recall.state === "finished");
+    $("recallSummary").textContent = waiting.length
+      ? `${waiting.length} participant(s) finished a recall and are waiting for their results: download the ASA24 Totals file and upload it below.`
+      : "No finished recalls waiting for upload.";
+    $("participants").innerHTML = ps.map((p) => `<tr>
+      <td>${esc(p.name)}${p.is_test_account ? ' <span class="muted">(test)</span>' : ""}</td><td>${esc(p.email)}</td>
+      <td>${esc(p.asa24_username || "—")}</td><td>${recallCell(p.recall)}</td><td>${esc(p.assessments.join(", ") || "—")}</td>
+      <td><input type="checkbox" data-testflag="${esc(p.id)}" ${p.is_test_account ? "checked" : ""} title="Excluded from cohort counts"></td>
+      <td>${p.asa24_username ? `<button class="secondary" data-unlink="${esc(p.asa24_username)}">Unlink</button>` : ""}</td></tr>`).join("");
+    $("linkEmail").innerHTML = ps.map((p) => `<option value="${esc(p.email)}">${esc(p.name)} — ${esc(p.email)}</option>`).join("");
+    $("twinUser").innerHTML = `<option value="">All participants</option>`
+      + ps.map((p) => `<option value="${esc(p.id)}">${esc(p.name)} — ${esc(p.email)}</option>`).join("");
+    $("twinProfUser").innerHTML = `<option value="">Pick one</option>`
+      + ps.map((p) => `<option value="${esc(p.id)}">${esc(p.name)} — ${esc(p.email)}</option>`).join("");
+  }
+
+  async function loadAccounts() {
+    const a = await call("/research/asa24/accounts");
+    $("acctCounts").innerHTML = `<b>${a.free}</b> free · ${a.assigned} given out`
+      + (a.free < 10 ? ' · <span style="color:var(--warn)">running low: add more before new students sign up</span>' : "");
+    $("accts").innerHTML = a.accounts.map((x) => `<tr><td>${esc(x.username)}</td><td>${esc(x.assigned_email || "free")}</td>
+      <td>${esc(x.assigned_at ? x.assigned_at.slice(0, 10) : "")}</td></tr>`).join("");
+  }
+
+  async function loadResearchers() {
+    const rs = await call("/research/researchers");
+    $("researchers").innerHTML = rs.map((r) => `<tr>
+      <td>${esc(r.name)}</td><td>${esc(r.email)}</td><td>${esc(r.role)}</td><td>${r.active ? "active" : "disabled"}</td>
+      <td>${esc(r.last_login_at ? r.last_login_at.slice(0, 16).replace("T", " ") : "—")}</td>
+      <td>${me && r.id === me.id ? "" : `<button class="secondary" data-rtoggle="${esc(r.id)}" data-active="${r.active}">${r.active ? "Disable" : "Enable"}</button>`}</td></tr>`).join("");
+  }
+
+  async function loadLabWing() {
+    try {
+      const r = await call("/research/lab-test-wing");
+      const w = r.wing;
+      if (!w) {
+        $("labWingInfo").textContent = "No Lab Test Wing yet. Add the first member to create one.";
+        $("labWingMembers").innerHTML = `<tr><td colspan="4" class="muted">No members.</td></tr>`;
+        return;
+      }
+      $("labWingInfo").innerHTML = `<b>${esc(w.name)}</b> · join code <code>${esc(w.join_code)}</code>
+        · created ${esc((w.created_at || "").slice(0, 10))}
+        · <b>${w.members.length}</b> member(s)`;
+      $("labWingMembers").innerHTML = w.members.length
+        ? w.members.map((m) => `<tr>
+            <td>${esc(m.email)}</td><td>${esc(m.name || "")}</td>
+            <td>${m.is_test_account ? '<span class="ready">yes</span>' : '<span class="bad">no</span>'}</td>
+            <td><button class="secondary" data-labremove="${esc(m.email)}">Remove</button></td></tr>`).join("")
+        : `<tr><td colspan="4" class="muted">No members yet. Add the first below.</td></tr>`;
+    } catch (e) { show($("labWingMsg"), e.message, "err"); }
+  }
+
+  let _modRows = [];
+  let _modTimer = null;
+  const REJECT_PRESETS = {
+    shows_person: "Photo shows a person",
+    not_a_food_photo: "Not a food photo",
+    breaks_guidelines: "Caption breaks our community guidelines",
+    unclear: "Not clear enough to approve",
+  };
+
+  function imageAuth() {
+    // The <img> tag can't send a Bearer / X-Research-Key header. For staff
+    // image previews we fetch the bytes ourselves and turn them into a
+    // blob: URL, which the browser scopes to this document only. Returned
+    // URLs get revoked on the next list refresh so we don't leak memory.
+    return token ? { Authorization: "Bearer " + token } : key ? { "X-Research-Key": key } : {};
+  }
+
+  async function _authedBlobUrl(path) {
+    try {
+      const res = await fetch("/api" + path, { headers: imageAuth() });
+      if (!res.ok) return "";
+      return URL.createObjectURL(await res.blob());
+    } catch { return ""; }
+  }
+
+  async function loadModerationCounts() {
+    try {
+      const c = await call("/research/moderation/counts");
+      const total = (c.pending || 0) + (c.reported || 0);
+      const badge = $("modBadge");
+      badge.style.display = total > 0 ? "inline-block" : "none";
+      badge.textContent = `${total} to review${c.reported ? ` (${c.reported} reported)` : ""}`;
+    } catch {} // header badge: silent failure, next refresh retries
+  }
+
+  async function loadModeration() {
+    try {
+      const r = await call("/research/moderation/pending");
+      // Revoke previous blob URLs before rendering fresh ones.
+      for (const old of _modRows) if (old._blobUrl) URL.revokeObjectURL(old._blobUrl);
+      _modRows = r.posts || [];
+      await Promise.all(_modRows.map(async (p) => {
+        p._blobUrl = await _authedBlobUrl(`/research/moderation/${encodeURIComponent(p.id)}/image`);
+      }));
+      _renderModeration();
+      await loadModerationCounts();
+    } catch (e) {
+      show($("modMsg"), e.message, "err");
+    }
+  }
+
+  function _renderModeration() {
+    if (!_modRows.length) {
+      $("modList").innerHTML = `<p class="muted">Nothing waiting for review.</p>`;
+      return;
+    }
+    const presetOptions = Object.entries(REJECT_PRESETS)
+      .map(([k, v]) => `<option value="${esc(k)}">${esc(v)}</option>`).join("");
+    $("modList").innerHTML = _modRows.map((p) => {
+      const steps = (p.steps || []).map((s) => `<li>${esc(s)}</li>`).join("");
+      const flags = p.filter?.flags?.length
+        ? p.filter.flags.map((f) => `<span class="pill bad">${esc(f)}</span>`).join(" ")
+        : (p.filter?.auto_checked ? '<span class="pill ready">auto-checked, no flags</span>'
+                                   : '<span class="pill warn">not auto-checked</span>');
+      const chips = [
+        p.is_test ? '<span class="pill ready">test</span>' : "",
+        p.reported ? '<span class="pill bad">reported</span>' : "",
+        p.focus_tag ? `<span class="pill">${esc(p.focus_tag)}</span>` : "",
+      ].filter(Boolean).join(" ");
+      const img = p._blobUrl
+        ? `<img src="${p._blobUrl}" alt="pending post image" style="max-width:200px; max-height:200px; border-radius:8px; border:1px solid var(--line)">`
+        : `<div class="muted">image unavailable</div>`;
+      return `<div class="mod-card" style="border:1px solid var(--line); border-radius:10px; padding:12px; display:grid; grid-template-columns:220px 1fr; gap:12px; background:var(--bg)">
+        <div>${img}</div>
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center">
+            <b>${esc(p.wing_name || "—")}</b>
+            <span class="muted">· ${esc((p.created_at || "").slice(0, 16).replace("T", " "))}</span>
+            ${chips}
+          </div>
+          <div class="muted">${esc(p.poster_name || "")} &lt;${esc(p.poster_email || "")}&gt;</div>
+          <div style="white-space:pre-wrap"><b>Caption:</b> ${esc(p.caption || "")}</div>
+          ${steps ? `<div><b>Steps:</b><ol style="margin:4px 0 0 18px">${steps}</ol></div>` : ""}
+          <div>${flags}</div>
+          <div class="row" style="margin-top:6px">
+            <button data-mod-approve="${esc(p.id)}">Approve</button>
+            <select data-mod-reason="${esc(p.id)}">${presetOptions}</select>
+            <button class="secondary" data-mod-reject="${esc(p.id)}">Reject</button>
+            ${p.reported ? `<button class="secondary" data-mod-remove="${esc(p.id)}">Remove (approved)</button>` : ""}
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+  }
+
+  function stopModTimer() { if (_modTimer) { clearInterval(_modTimer); _modTimer = null; } }
+  function startModTimer() {
+    stopModTimer();
+    if ($("modAutoRefresh")?.checked && !document.hidden) {
+      _modTimer = setInterval(() => { loadModeration(); }, 15000);
+    }
+  }
+
+  async function loadLabFeedback() {
+    try {
+      const r = await call("/research/lab-feedback?limit=200");
+      const rows = r.feedback || [];
+      $("labFbRows").innerHTML = rows.length
+        ? rows.map((f) => `<tr>
+            <td>${esc((f.created_at || "").slice(0, 16).replace("T", " "))}</td>
+            <td>${esc(f.email || "")}</td><td>${esc(f.screen || "")}</td>
+            <td>${esc(f.device || "")}</td><td>${f.rating ?? "—"}</td>
+            <td class="wrap">${esc(f.what_doing || "")}</td>
+            <td class="wrap">${esc(f.what_happened || "")}</td></tr>`).join("")
+        : `<tr><td colspan="7" class="muted">Nothing yet.</td></tr>`;
+    } catch (e) { show($("labFbMsg"), e.message, "err"); }
+  }
+
+  function twinHabits(block) {
+    if (!block) return '<span class="muted">not run</span>';
+    if (block.available === false) return `<span class="muted">unavailable (${esc(block.reason || "")})</span>`;
+    if (!block.habits.length) return `<span class="muted">${esc(block.status === "learning" ? "learning" : "none yet")}</span>`;
+    return block.habits.map((h) => `${esc(h.label)} (${esc(h.times)}, ${esc(h.top_slot)})`).join("; ");
+  }
+  function twinSwap(block) {
+    if (!block || block.available === false) return "";
+    if (!block.suggestions.length) return '<span class="muted">—</span>';
+    return block.suggestions.map((s) => `<b>${esc(s.swap_label)}</b>${s.habit ? ` ← ${esc(s.habit)}` : ""}`
+      + (s.on_menu_today.length ? `<br><span class="muted">${esc(s.on_menu_today[0])}</span>` : "")
+      + (s.why ? `<br><i>${esc(s.why)}</i>` : "")).join("<br>");
+  }
+
+  async function loadTwin() {
+    try {
+      const uid = $("twinUser").value, days = $("twinDays").value;
+      const [d, s] = await Promise.all([
+        call(`/research/twin-decisions?days=${days}${uid ? "&user_id=" + encodeURIComponent(uid) : ""}`),
+        call(`/research/twin-decisions/summary?days=${days}`),
+      ]);
+      $("twinEngineSetting").textContent = d.engine_setting;
+      const pct = (x) => (x == null ? "—" : Math.round(x * 100) + "%");
+      $("twinSummary").textContent = `${s.decisions} decision day(s) in the last ${s.days} days; both engines ran on `
+        + `${s.with_both_engines} (${s.participants_with_both} participant(s)); AI unavailable on ${s.llm_unavailable}, `
+        + `not run on ${s.llm_not_run}. Top-swap agreement ${pct(s.top_swap_agreement)}; regulars overlap `
+        + `${pct(s.mean_habit_overlap)}; regulars per day — rules ${s.mean_habits_rules == null ? "—" : s.mean_habits_rules.toFixed(1)}, `
+        + `AI ${s.mean_habits_llm == null ? "—" : s.mean_habits_llm.toFixed(1)}.`;
+      const rows = d.decisions || [];
+      $("twinRows").innerHTML = rows.length ? rows.map((r) => `<tr>
+          <td>${esc(r.day)}</td><td>${esc(r.name || "")}<br><span class="muted">${esc(r.email || "")}</span></td>
+          <td><span class="pill">${esc(r.shown)}</span></td>
+          <td class="wrap">${twinHabits(r.rules)}</td><td class="wrap">${twinSwap(r.rules)}</td>
+          <td class="wrap">${twinHabits(r.llm)}</td><td class="wrap">${twinSwap(r.llm)}</td>
+          <td>${r.agree_top_swap == null ? "—" : r.agree_top_swap ? "yes" : "no"}</td></tr>`).join("")
+        : `<tr><td colspan="8" class="muted">Nothing yet.</td></tr>`;
+      show($("twinMsg"), "");
+    } catch (e) { show($("twinMsg"), e.message, "err"); }
+  }
+
+  // ---- 9. Behavioral twin ------------------------------------------------------------
+  const pct = (x) => (x == null ? "—" : Math.round(x * 100) + "%");
+  function tallyTable(title, obj) {
+    const rows = Object.entries(obj || {});
+    if (!rows.length) return `<p class="muted">${esc(title)}: nothing yet.</p>`;
+    return `<h3 style="margin:16px 0 6px;font-size:14px">${esc(title)}</h3><div class="table-wrap"><table><thead><tr><th></th>
+      <th>Accepted</th><th>Not for me</th><th>Worked</th><th>Didn't fit</th><th>Acceptance</th><th>Success</th></tr></thead><tbody>`
+      + rows.map(([k, c]) => `<tr><td>${esc(k)}</td><td>${c.accept || 0}</td><td>${c.decline || 0}</td>
+        <td>${(c.worked || 0) + (c.still_doing || 0)}</td><td>${(c.didnt_fit || 0) + (c.lapsed || 0)}</td>
+        <td>${pct(c.acceptance_rate)}</td><td>${pct(c.success_rate)}</td></tr>`).join("") + "</tbody></table></div>";
+  }
+  async function loadTwinEval() {
+    try {
+      const e = await call(`/research/twin-eval?days=${$("twinEvalDays").value}&include_test=${$("twinEvalTest").value}`);
+      const acc = Object.entries(e.pattern_accuracy || {});
+      const ca = e.constraint_adherence, fi = e.feedback_incorporation, ap = e.appropriateness;
+      $("twinEval").classList.remove("muted");
+      $("twinEval").innerHTML = `<p>${e.participants} participant(s) in the last ${e.days} days.</p>
+        <p><b>Constraint adherence</b>: ${pct(ca.rate)} of ${ca.steps_shown} step(s) shown respected every constraint the
+        participant had named (${ca.new_steps_with_violation} new step(s) went against one; ${ca.with_violation - ca.new_steps_with_violation}
+        step(s) already being tried when a new constraint came in).<br>
+        <b>Feedback incorporation</b>: after a reason was given, later steps respected it ${pct(fi.respected_rate)}
+        (${fi.respected_later}/${fi.reasons_checked}); a different step for the same pattern followed ${pct(fi.alternative_rate)}
+        (${fi.alternative_offered}/${fi.declines_with_pattern}).<br>
+        <b>Appropriateness</b> (staff ratings below): ${pct(ap.rate)} of ${ap.rated} rated step(s).<br>
+        <b>Free-text notes</b> mapped by: ${esc(Object.entries(e.notes_interpreted_by || {}).map(([k, v]) => `${k} ${v}`).join(", ") || "—")}.
+        Reasons given: ${esc(Object.entries(e.reasons || {}).map(([k, v]) => `${k} ${v}`).join(", ") || "—")}.</p>
+        <h3 style="margin:16px 0 6px;font-size:14px">Pattern accuracy (participants' own answers)</h3>`
+        + (acc.length ? `<div class="table-wrap"><table><thead><tr><th>Pattern</th><th>Answered</th><th>Yes</th><th>Sometimes</th>
+          <th>No</th><th>Confirmed</th></tr></thead><tbody>` + acc.map(([k, c]) => `<tr><td>${esc(k)}</td><td>${c.answered}</td>
+          <td>${c.yes}</td><td>${c.sometimes}</td><td>${c.no}</td><td>${pct(c.confirmed_rate)}</td></tr>`).join("") + "</tbody></table></div>"
+          : '<p class="muted">No answers yet.</p>')
+        + tallyTable("Steps by domain", e.steps_by_domain) + tallyTable("Steps by type", e.steps_by_type)
+        + tallyTable("Steps by behavior-change technique", e.steps_by_technique);
+      show($("twinEvalMsg"), "");
+    } catch (err) { show($("twinEvalMsg"), err.message, "err"); }
+  }
+  async function loadTwinProfile() {
+    const uid = $("twinProfUser").value;
+    if (!uid) { show($("twinProfMsg"), "Pick one participant first.", "err"); return; }
+    try {
+      const p = await call(`/research/twin-profile?user_id=${encodeURIComponent(uid)}`);
+      const today = p.snapshots[0] ? p.snapshots[0].day : "";
+      const ratings = (p.snapshots[0] && p.snapshots[0].ratings) || {};
+      const facts = p.facts.map((f) => `<tr><td>${esc(f.key)}</td><td>${esc(f.kind)}</td><td>${esc(f.status)}</td>
+        <td>${esc(f.source || "")}</td><td class="wrap">${esc(f.label || "")}${f.evidence ? `<br><span class="muted">${esc(f.evidence)}</span>` : ""}
+        ${(f.circumstances || []).length ? `<br><span class="muted">${esc(f.circumstances.join(", "))}</span>` : ""}</td>
+        <td>${esc(f.answered_day || f.last_day || "")}</td></tr>`).join("");
+      const events = p.events.slice(0, 60).map((ev) => `<tr><td>${esc((ev.created_at || "").slice(0, 16).replace("T", " "))}</td>
+        <td>${esc(ev.kind)}</td><td>${esc(ev.rec_id || ev.key || "")}</td><td>${esc(ev.response || ev.answer || (ev.on === false ? "off" : ev.on ? "on" : ""))}</td>
+        <td class="wrap">${esc((ev.reasons || ev.circumstances || []).join(", "))}${ev.note ? `<br><i>${esc(ev.note)}</i> <span class="muted">(${esc(ev.interpreted_by)})</span>` : ""}</td>
+        <td>${esc((ev.learned || []).join(", "))}</td></tr>`).join("");
+      const snap = p.snapshots[0] || { recommendations: [] };
+      const steps = snap.recommendations.map((r) => `<tr><td><b>${esc(r.title)}</b><br><span class="muted">${esc(r.id)} · ${esc(r.domains.join("+"))} · ${esc(r.type)}${r.status ? " · " + esc(r.status) : ""}</span></td>
+        <td class="wrap">${esc(r.why || "")}<br><span class="muted">${esc((r.factors || []).map((f) => `${f[0]}${f[1] ? ":" + f[1] : ""} ${f[2] > 0 ? "+" : ""}${f[2]}`).join(", "))}</span></td>
+        <td>${(r.violations || []).length ? `<span style="color:var(--warn)">${esc(r.violations.join(", "))}</span>` : "none"}</td>
+        <td>${ratings[r.id] ? esc(ratings[r.id].rating.replace("_", " ")) : `<button class="secondary" data-twinrate="${esc(r.id)}" data-rating="appropriate">Appropriate</button>
+          <button class="secondary" data-twinrate="${esc(r.id)}" data-rating="not_appropriate">Not appropriate</button>`}</td></tr>`).join("");
+      $("twinProf").innerHTML = `<p><b>${esc(p.user.name || "")}</b> · ${esc(p.user.email || "")} · focus area ${esc(p.user.focus_area || "none")}
+        ${p.state.paused ? ' · <span style="color:var(--warn)">paused after a safety check-in</span>' : ""}<br>
+        <span class="muted">Confirmed: ${esc(Object.entries(p.state.confirmed).map(([k, v]) => `${k} (${v})`).join(", ") || "—")} ·
+        Circumstances: ${esc(p.state.stated.join(", ") || "—")} · Constraints: ${esc(p.state.constraints.join(", ") || "—")} ·
+        Contexts: ${esc(p.state.contexts.join(", ") || "unknown")} · Domains in play: ${esc(Object.entries(p.state.domains_on).filter(([, v]) => v).map(([k]) => k).join(", ") || "—")}</span></p>
+        <p class="muted">Asking now: ${esc(p.now.questions.map((q) => q.question).join(" · ") || "nothing")}</p>
+        <h3 style="margin:16px 0 6px;font-size:14px">Today's steps (${esc(today)})</h3>
+        <div class="table-wrap"><table><thead><tr><th>Step</th><th>Why (factors)</th><th>Against a constraint</th><th>Rate</th></tr></thead>
+        <tbody>${steps || '<tr><td colspan="4" class="muted">None.</td></tr>'}</tbody></table></div>
+        <h3 style="margin:16px 0 6px;font-size:14px">Profile facts</h3>
+        <div class="table-wrap"><table><thead><tr><th>Key</th><th>Kind</th><th>Status</th><th>Source</th><th>Label / evidence</th><th>Day</th></tr></thead>
+        <tbody>${facts || '<tr><td colspan="6" class="muted">Nothing stored yet (survey-derived facts are recomputed live).</td></tr>'}</tbody></table></div>
+        <h3 style="margin:16px 0 6px;font-size:14px">What they said, newest first</h3>
+        <div class="table-wrap"><table><thead><tr><th>When</th><th>Kind</th><th>Step / pattern</th><th>Answer</th><th>Reasons / note</th><th>Learned</th></tr></thead>
+        <tbody>${events || '<tr><td colspan="6" class="muted">Nothing yet.</td></tr>'}</tbody></table></div>`;
+      document.querySelectorAll("[data-twinrate]").forEach((b) => {
+        b.onclick = async () => {
+          try {
+            await call("/research/twin-snapshots/rate", { method: "POST", body: JSON.stringify({
+              user_id: uid, day: today, rec_id: b.dataset.twinrate, rating: b.dataset.rating }) });
+            await loadTwinProfile();
+          } catch (err) { show($("twinProfMsg"), err.message, "err"); }
+        };
+      });
+      show($("twinProfMsg"), "");
+    } catch (err) { show($("twinProfMsg"), err.message, "err"); }
+  }
+
+  async function enter() {
+    me = await call("/research/auth/me");
+    $("whoami").innerHTML = (me.kind === "researcher" ? `Signed in as <b>${esc(me.email)}</b> (${esc(me.role)})` : "Using the shared research key")
+      + ` · <a href="#" id="signout">Sign out</a>`;
+    $("signout").onclick = signOut;
+    await loadParticipants();
+    await loadAccounts();
+    await loadLabWing();
+    await loadLabFeedback();
+    await loadModeration();
+    await loadTwin();
+    await loadTwinEval();
+    startModTimer();
+    $("signin").classList.add("hidden"); $("whoami").classList.remove("hidden"); $("app").classList.remove("hidden");
+    $("researchersSection").classList.toggle("hidden", me.role !== "admin");
+    if (me.role === "admin") await loadResearchers();
+  }
+
+  async function signOut(ev) {
+    ev?.preventDefault();
+    if (token) { try { await call("/research/auth/logout", { method: "POST" }); } catch {} }
+    token = key = ""; me = null; store.set("llhs.researchToken", ""); store.set("llhs.researchKey", "");
+    $("app").classList.add("hidden"); $("whoami").classList.add("hidden"); $("signin").classList.remove("hidden");
+  }
+
+  $("loginForm").onsubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      const res = await fetch("/api/research/auth/login", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: $("email").value, password: $("password").value }) });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.detail || "Sign-in failed");
+      token = body.token; key = ""; store.set("llhs.researchToken", token); store.set("llhs.researchKey", "");
+      $("password").value = "";
+      await enter(); show($("keyMsg"), "");
+    } catch (e) { show($("keyMsg"), e.message, "err"); }
+  };
+
+  $("connect").onclick = async () => {
+    key = $("key").value.trim(); token = "";
+    try { await enter(); store.set("llhs.researchKey", key); store.set("llhs.researchToken", ""); show($("keyMsg"), ""); }
+    catch (e) { key = ""; show($("keyMsg"), e.message, "err"); }
+  };
+
+  $("addResearcher").onsubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      await call("/research/researchers", { method: "POST", body: JSON.stringify({
+        email: $("rEmail").value, name: $("rName").value, password: $("rPass").value, role: $("rRole").value }) });
+      ev.target.reset(); show($("rMsg"), "Researcher added — share the temporary password with them privately.", "ok");
+      await loadResearchers();
+    } catch (e) { show($("rMsg"), e.message, "err"); }
+  };
+
+  $("acctForm").onsubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      const r = await call("/research/asa24/accounts", { method: "POST", body: JSON.stringify({ text: $("acctText").value }) });
+      $("acctText").value = "";
+      show($("acctMsg"), `Added ${r.added} account(s).` + (r.skipped.length ? ` Skipped ${r.skipped.length} already in the app: ${r.skipped.join(", ")}.` : ""), "ok");
+      await loadAccounts();
+    } catch (e) { show($("acctMsg"), e.message, "err"); }
+  };
+
+  $("researchers").onclick = async (ev) => {
+    const id = ev.target.dataset?.rtoggle; if (!id) return;
+    try {
+      await call("/research/researchers/" + encodeURIComponent(id), { method: "PATCH",
+        body: JSON.stringify({ active: ev.target.dataset.active !== "true" }) });
+      await loadResearchers();
+    } catch (e) { show($("rMsg"), e.message, "err"); }
+  };
+
+  $("exportBtn").onclick = async () => {
+    show($("exportMsg"), "");
+    try {
+      const auth = token ? { Authorization: "Bearer " + token } : key ? { "X-Research-Key": key } : {};
+      // "Include test accounts" opts the Lab Test Wing cohort back into
+      // the CSV; default off so a 30-minute rehearsal doesn't bleed into
+      // the analysis file.
+      const includeTest = $("exportIncludeTest")?.checked ? "?include_test=true" : "";
+      const res = await fetch("/api/research/hei/scores.csv" + includeTest, { headers: auth });
+      if (!res.ok) throw new Error(`Download failed (${res.status})`);
+      const name = (res.headers.get("Content-Disposition") || "").match(/filename="([^"]+)"/)?.[1] || "llhs-hei-scores.csv";
+      const url = URL.createObjectURL(await res.blob());
+      const a = document.createElement("a");
+      a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      show($("exportMsg"), "Downloaded " + name + ".", "ok");
+    } catch (e) { show($("exportMsg"), e.message, "err"); }
+  };
+  $("linkBtn").onclick = async () => {
+    try {
+      await call("/research/asa24/links", { method: "PUT", body: JSON.stringify({ participant_email: $("linkEmail").value, asa24_username: $("linkUser").value }) });
+      $("linkUser").value = ""; show($("linkMsg"), "Link saved.", "ok"); await loadParticipants();
+    } catch (e) { show($("linkMsg"), e.message, "err"); }
+  };
+
+  $("participants").onchange = async (ev) => {
+    const id = ev.target.dataset?.testflag; if (!id) return;
+    try { await call("/research/participants/" + encodeURIComponent(id), { method: "PATCH", body: JSON.stringify({ is_test_account: ev.target.checked }) }); }
+    catch (e) { ev.target.checked = !ev.target.checked; show($("linkMsg"), e.message, "err"); }
+  };
+
+  $("participants").onclick = async (ev) => {
+    const u = ev.target.dataset?.unlink; if (!u) return;
+    try { await call("/research/asa24/links/" + encodeURIComponent(u), { method: "DELETE" }); await loadParticipants(); }
+    catch (e) { show($("linkMsg"), e.message, "err"); }
+  };
+
+  $("file").onchange = async () => {
+    const f = $("file").files[0]; csvText = f ? await f.text() : "";
+    $("previewBtn").disabled = !csvText; $("previewWrap").classList.add("hidden");
+  };
+
+  function renderPlan(plan) {
+    $("counts").textContent = Object.entries(plan.counts).map(([k, v]) => `${v} ${k.replace(/_/g, " ")}`).join(" · ");
+    $("preview").innerHTML = plan.rows.map((r) => `<tr>
+      <td>${r.status === "ready" ? `<input type="checkbox" checked data-user="${esc(r.asa24_username)}">` : ""}</td>
+      <td>${esc(r.asa24_username)}</td><td>${esc(r.participant ? r.participant.email : "not linked")}</td>
+      <td><span class="pill ${esc(r.status)}">${esc(r.status.replace(/_/g, " "))}</span></td>
+      <td>${r.recall_count}</td><td>${r.total_score.toFixed(1)}</td>
+      <td class="wrap">${esc(r.warnings.join(" ") || "")}${r.status === "exists" ? " Already scored for this point — tick 'Replace' to overwrite." : ""}</td></tr>`).join("");
+    $("previewWrap").classList.remove("hidden");
+  }
+
+  const uploadBody = (extra) => JSON.stringify({ csv_text: csvText, assessment_type: $("atype").value, overwrite: $("overwrite").checked, ...extra });
+
+  $("previewBtn").onclick = async () => {
+    try { renderPlan(await call("/research/asa24/preview", { method: "POST", body: uploadBody() })); show($("uploadMsg"), ""); }
+    catch (e) { $("previewWrap").classList.add("hidden"); show($("uploadMsg"), e.message, "err"); }
+  };
+
+  $("importBtn").onclick = async () => {
+    const usernames = [...document.querySelectorAll("#preview input[data-user]:checked")].map((c) => c.dataset.user);
+    if (!usernames.length) return show($("uploadMsg"), "Nothing selected.", "err");
+    $("importBtn").disabled = true;
+    try {
+      const res = await call("/research/asa24/import", { method: "POST", body: uploadBody({ usernames }) });
+      renderPlan(res); show($("uploadMsg"), `Imported ${res.imported.length} participant(s).`, "ok"); await loadParticipants();
+    } catch (e) { show($("uploadMsg"), e.message, "err"); }
+    finally { $("importBtn").disabled = false; }
+  };
+
+  $("labWingAddBtn").onclick = async () => {
+    const email = ($("labWingEmail").value || "").trim();
+    if (!email) return show($("labWingMsg"), "Enter an email first.", "err");
+    try {
+      await call("/research/lab-test-wing/ensure", { method: "POST" });
+      await call("/research/lab-test-wing/add", { method: "POST", body: JSON.stringify({ email }) });
+      $("labWingEmail").value = "";
+      show($("labWingMsg"), `Added ${email} and flagged as test.`, "ok");
+      await loadLabWing(); await loadParticipants();
+    } catch (e) { show($("labWingMsg"), e.message, "err"); }
+  };
+
+  $("labWingMembers").onclick = async (ev) => {
+    const email = ev.target.dataset?.labremove; if (!email) return;
+    try {
+      await call("/research/lab-test-wing/remove", { method: "POST", body: JSON.stringify({ email }) });
+      show($("labWingMsg"), `Removed ${email} from the Lab Test Wing.`, "ok");
+      await loadLabWing();
+    } catch (e) { show($("labWingMsg"), e.message, "err"); }
+  };
+
+  $("labFbRefreshBtn").onclick = async () => {
+    show($("labFbMsg"), "Refreshing…");
+    await loadLabFeedback();
+    show($("labFbMsg"), "Refreshed.", "ok");
+  };
+
+  $("modRefreshBtn").onclick = async () => {
+    show($("modMsg"), "Refreshing…");
+    await loadModeration();
+    show($("modMsg"), "Refreshed.", "ok");
+  };
+  $("modAutoRefresh").onchange = startModTimer;
+  // Pause the auto-poll when the tab is hidden; resume when it's visible.
+  // Browsers already throttle setInterval in background tabs, but this
+  // keeps the token-authed fetches off the wire entirely so staff on a
+  // crowded Wi-Fi don't rack up pointless requests.
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopModTimer(); else startModTimer();
+  });
+
+  $("modList").onclick = async (ev) => {
+    const t = ev.target;
+    const approve = t.dataset?.modApprove;
+    const reject = t.dataset?.modReject;
+    const remove = t.dataset?.modRemove;
+    if (!approve && !reject && !remove) return;
+    try {
+      if (approve) {
+        await call(`/research/moderation/${encodeURIComponent(approve)}/approve`, { method: "POST" });
+        show($("modMsg"), "Approved.", "ok");
+      } else if (reject) {
+        const sel = document.querySelector(`select[data-mod-reason="${reject}"]`);
+        const reason = sel?.value;
+        if (!reason) return show($("modMsg"), "Pick a reject reason first.", "err");
+        await call(`/research/moderation/${encodeURIComponent(reject)}/reject`,
+                   { method: "POST", body: JSON.stringify({ reason }) });
+        show($("modMsg"), "Rejected.", "ok");
+      } else if (remove) {
+        if (!confirm("Pull this post out of the Wing feed? The image will be deleted.")) return;
+        await call(`/research/moderation/${encodeURIComponent(remove)}/remove`, { method: "POST" });
+        show($("modMsg"), "Removed.", "ok");
+      }
+      await loadModeration();
+    } catch (e) { show($("modMsg"), e.message, "err"); }
+  };
+
+  $("twinEvalBtn").onclick = loadTwinEval;
+  $("twinEvalDays").onchange = loadTwinEval;
+  $("twinEvalTest").onchange = loadTwinEval;
+  $("twinProfBtn").onclick = loadTwinProfile;
+  $("twinProfUser").onchange = loadTwinProfile;
+  $("twinRefreshBtn").onclick = loadTwin;
+  $("twinUser").onchange = loadTwin;
+  $("twinDays").onchange = loadTwin;
+  $("twinRecomputeBtn").onclick = async () => {
+    const uid = $("twinUser").value;
+    if (!uid) { show($("twinMsg"), "Pick one participant first.", "err"); return; }
+    show($("twinMsg"), "Running both engines… (the AI engine uses that participant's TAMU key)");
+    try {
+      await call("/research/twin-decisions/recompute", { method: "POST", body: JSON.stringify({ user_id: uid }) });
+      await loadTwin();
+    } catch (e) { show($("twinMsg"), e.message, "err"); }
+  };
+  $("labFbExportBtn").onclick = async () => {
+    show($("labFbMsg"), "");
+    try {
+      const auth = token ? { Authorization: "Bearer " + token } : key ? { "X-Research-Key": key } : {};
+      const res = await fetch("/api/research/lab-feedback.csv", { headers: auth });
+      if (!res.ok) throw new Error(`Download failed (${res.status})`);
+      const url = URL.createObjectURL(await res.blob());
+      const a = document.createElement("a");
+      a.href = url; a.download = "lab_feedback.csv"; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      show($("labFbMsg"), "Downloaded lab_feedback.csv.", "ok");
+    } catch (e) { show($("labFbMsg"), e.message, "err"); }
+  };
+
+  if (token || key) enter().catch(() => signOut());
+})();
+</script>
+</body>
+</html>

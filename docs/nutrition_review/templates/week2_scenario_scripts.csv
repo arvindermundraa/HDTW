@@ -1,0 +1,10 @@
+scenario_id,scenario_prompt,option_id,option_text,approved_feedback,notes
+restaurant,You're out for dinner with friends and ordering from the menu. Which would you go for?,grilled_sandwich_fries,Grilled chicken sandwich with fries,,
+restaurant,You're out for dinner with friends and ordering from the menu. Which would you go for?,roasted_salmon_veg_rice,Roasted salmon with steamed vegetables and rice,,
+restaurant,You're out for dinner with friends and ordering from the menu. Which would you go for?,crispy_wrap_salad,Crispy chicken wrap with a side salad,,
+someone_else,"You're at a family dinner, or a friend's place, and the food is set out. You're filling your plate.",fried_chicken_mac,Fried chicken and mac and cheese,,
+someone_else,"You're at a family dinner, or a friend's place, and the food is set out. You're filling your plate.",grilled_rice_beans_salad,"Grilled chicken, rice and beans, and a salad",,
+someone_else,"You're at a family dinner, or a friend's place, and the food is set out. You're filling your plate.",little_of_everything_veg_seconds,"A little of everything, with seconds on the vegetables",,
+home,"You're making dinner at home with a can of beans, rice, and some vegetables. You have about 20 minutes.",beans_can_liquid_white_rice,"Beans straight from the can with the liquid, over white rice",,
+home,"You're making dinner at home with a can of beans, rice, and some vegetables. You have about 20 minutes.",rinsed_beans_veg_brown_rice,Rinsed beans with vegetables and brown rice,,
+home,"You're making dinner at home with a can of beans, rice, and some vegetables. You have about 20 minutes.",beans_veg_cheese_white_rice,"Beans and vegetables with cheese, over white rice",,

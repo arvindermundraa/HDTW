@@ -1,0 +1,101 @@
+[
+  {
+    "id": "guideline_sodium",
+    "title": "Daily sodium guideline",
+    "topic": "guideline",
+    "hei_component": "sodium",
+    "curriculum_area": null,
+    "tags": ["sodium", "salt", "mg", "daily value", "blood pressure", "cut back on salt", "lower sodium", "reduce sodium"],
+    "text": "The FDA Daily Value for sodium is less than 2,300 mg a day — a general reference value based on a 2,000-calorie diet, not a personal target. That's about one teaspoon of salt total from all food and drink combined, not just what you add. On packaged food labels, 5% Daily Value (DV) or less per serving is a 'low' amount of sodium and 20% DV or more is 'high'. Most sodium in a typical U.S. diet comes from packaged, restaurant, and dining-hall foods rather than the salt shaker — the practical move is to compare labels at the store and ask for sauce or dressing on the side when eating out.",
+    "source": "FDA Nutrition Facts label education; Dietary Guidelines for Americans, 2020–2025 (sodium)",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_fiber",
+    "title": "Daily fiber guideline",
+    "topic": "guideline",
+    "hei_component": "fiber",
+    "curriculum_area": null,
+    "tags": ["fiber", "fibre", "whole grains", "beans", "lentils", "how much fiber", "daily value", "dv"],
+    "text": "The FDA Daily Value for fiber is at least 28 grams a day — a general reference value based on a 2,000-calorie diet, not a personal target. Most college-aged adults get about half that. Easy ways to close the gap: a cup of oats or a slice of 100% whole-grain bread at breakfast (about 4–5 g each), a cup of beans or lentils with a meal (about 7–10 g), a piece of fruit for a snack (2–4 g), and vegetables at lunch and dinner.",
+    "source": "FDA Nutrition Facts label (Daily Values); Dietary Guidelines for Americans, 2020–2025",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_fruit_vegetables",
+    "title": "Daily fruit and vegetable guideline",
+    "topic": "guideline",
+    "hei_component": "total_fruits",
+    "curriculum_area": null,
+    "tags": ["fruit", "fruits", "vegetables", "veggies", "produce", "cups", "how much fruit", "how many vegetables"],
+    "text": "The Dietary Guidelines for Americans suggest about 2 cups of fruit and 2½ cups of vegetables per day for most college-aged adults — slightly more or less depending on activity level. Whole fruit counts fully; 100% juice counts once (about 1 cup max). Dark leafy greens, red/orange vegetables, and beans/peas are the ones that most people fall short on. Frozen and canned (rinsed) count — fresh isn't a requirement.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 and MyPlate",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_whole_grains",
+    "title": "Daily whole grain guideline",
+    "topic": "guideline",
+    "hei_component": "whole_grains",
+    "curriculum_area": null,
+    "tags": ["whole grains", "grain", "brown rice", "quinoa", "oats", "whole wheat bread", "half your grains"],
+    "text": "The Dietary Guidelines recommend making at least HALF of your grains whole. On packaged food labels, look for 'whole wheat' or 'whole grain' as the first ingredient — not just 'wheat flour' or 'enriched flour'. In a dining hall, swapping white rice for brown rice, or white bread for 100% whole-wheat, is the single easiest move.",
+    "source": "Dietary Guidelines for Americans, 2020–2025, Chapter 1 and MyPlate (grains)",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_added_sugars",
+    "title": "Daily added sugars guideline",
+    "topic": "guideline",
+    "hei_component": "added_sugars",
+    "curriculum_area": null,
+    "tags": ["added sugars", "sugar", "sugary drinks", "soda", "daily value", "dv", "how much sugar"],
+    "text": "The FDA Daily Value for added sugars is less than 50 g (12 teaspoons) a day — a general reference value based on a 2,000-calorie diet, not a personal target. The biggest source for most college-aged adults is sugar-sweetened drinks (soda, sweet tea, flavored coffees, energy drinks, specialty lattes). A 12 oz can of regular soda has about 39 g — close to a full day's worth in one drink. On labels, look for 10% DV or less for added sugars per serving.",
+    "source": "FDA Nutrition Facts label (added sugars); Dietary Guidelines for Americans, 2020–2025",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_saturated_fat",
+    "title": "Daily saturated fat guideline",
+    "topic": "guideline",
+    "hei_component": "saturated_fats",
+    "curriculum_area": null,
+    "tags": ["saturated fat", "fat", "butter", "cheese", "fatty meat", "cholesterol", "heart health"],
+    "text": "The FDA Daily Value for saturated fat is less than 20 g a day — a general reference value based on a 2,000-calorie diet, not a personal target. Big sources: fatty meats, butter, full-fat cheese and ice cream, and most fried fast food. Swaps that stack up: fish or beans in place of a fatty meat a couple of nights a week; olive oil in place of butter when cooking; a thinner layer of cheese on sandwiches.",
+    "source": "FDA Nutrition Facts label (saturated fat); Dietary Guidelines for Americans, 2020–2025",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_label_reading",
+    "title": "How to read a Nutrition Facts label in 15 seconds",
+    "topic": "guideline",
+    "hei_component": null,
+    "curriculum_area": "applying",
+    "tags": ["label", "nutrition facts", "serving size", "percent daily value", "dv", "sodium", "compare labels"],
+    "text": "A fast way to read any Nutrition Facts label: (1) Serving size first — the whole package often holds 2 or 3 servings. (2) Scan 'Added sugars', 'Saturated fat', and 'Sodium' — 5% Daily Value or less is 'low', 20% DV or more is 'high'. (3) Scan 'Fiber' — 20% DV or more per serving is 'high' and generally helpful. When comparing two products, lower sat fat, lower sodium, lower added sugars, and higher fiber per serving are the four to watch.",
+    "source": "FDA Nutrition Facts label education",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_calorie_topic",
+    "title": "Calorie-counting and weight questions in LLHS",
+    "topic": "scope",
+    "hei_component": null,
+    "curriculum_area": null,
+    "tags": ["calories", "calorie counting", "weight loss", "weight", "lose weight", "diet"],
+    "text": "LLHS is a habit-based program — not something that works with calorie counts or body-size targets. If a student asks about calorie amounts or body-size change, respond with a short, supportive sentence that reframes toward the habit (what to add, build, swap, or try), and suggest reaching out to the study team or a dietitian for the specifics.",
+    "source": "LLHS study team guidance (October 2026)",
+    "reviewed": false
+  },
+  {
+    "id": "guideline_plan_option_unavailable",
+    "title": "When the planned food option isn't available",
+    "topic": "coping",
+    "hei_component": null,
+    "curriculum_area": null,
+    "tags": ["plan unavailable", "not available", "sold out", "backup", "fallback", "what if"],
+    "text": "If the option in your plan isn't available, pick the closest thing on offer — a better choice still counts even when it's not the one you wrote down. The three usual swaps: (1) if a whole-grain option is missing, pick the dish with vegetables or beans on it instead; (2) if a fish entrée is missing, grab beans or a lean grilled option; (3) if a lower-sodium side is missing, add a piece of fruit or a side salad to balance a saltier main. Save the actual plan for the next day it IS available.",
+    "source": "LLHS coping strategies (based on Week 2 planning spec)",
+    "reviewed": false
+  }
+]

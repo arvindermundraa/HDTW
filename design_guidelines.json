@@ -1,0 +1,148 @@
+{
+  "app_name": "LLHS — Live Long, Heart Strong",
+  "personality": "3 Editorial Mobile LIGHT",
+  "personality_one_liner": "A calm, trustworthy, and clinical-editorial atmosphere that prioritizes clarity, human connection, and soft storytelling over dense data.",
+  "color": {
+    "surface": "#FDFBF7",
+    "onSurface": "#2C2F2D",
+    "surfaceSecondary": "#F5F2EB",
+    "onSurfaceSecondary": "#3B3E3C",
+    "surfaceTertiary": "#ECE7DD",
+    "onSurfaceTertiary": "#4A4D4A",
+    "surfaceInverse": "#2C2F2D",
+    "onSurfaceInverse": "#FDFBF7",
+    "brand": "#8EA681",
+    "brandPrimary": "#6E8761",
+    "onBrandPrimary": "#FFFFFF",
+    "brandSecondary": "#D8A48F",
+    "onBrandSecondary": "#3D2721",
+    "brandTertiary": "#E4EBE0",
+    "onBrandTertiary": "#47593D",
+    "success": "#8EA681",
+    "onSuccess": "#FFFFFF",
+    "warning": "#D4A373",
+    "onWarning": "#4A3219",
+    "error": "#C27A6D",
+    "onError": "#FFFFFF",
+    "info": "#91A1AB",
+    "onInfo": "#FFFFFF",
+    "border": "#E8E4DB",
+    "borderStrong": "#D1CBBF",
+    "divider": "#E8E4DB"
+  },
+  "typography": {
+    "displayFontFamily": "PlayfairDisplay_500Medium",
+    "textFontFamily": "PlusJakartaSans_500Medium",
+    "handwritingFontFamily": "Caveat_600SemiBold",
+    "handwritingFontFamilyNote": "Caveat (Google Fonts, OFL-1.1), 600 SemiBold weight — chosen over Kalam (too heavy/casual for this editorial-journal tone) and Shadows Into Light (too thin/calligraphic to stay legible at small UI sizes) for decorative quote-callout text only, e.g. 'Progress over perfection ♡'. Never used for body copy or anything load-bearing.",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Use magazine-like spacing rhythms with generous vertical breathing room. Avoid dense card-heavy layouts.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": 0,
+  "navigation": "bottom_tabs",
+  "icon_set": "Feather",
+  "glassmorphism": {
+    "enabled": false,
+    "do's": [
+      "Avoid glassmorphism to keep the aesthetic purely editorial and matte."
+    ],
+    "dont's": [
+      "No frosted headers or bottom sheets."
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Health HQ Dashboard",
+      "purpose": "A calm, holistic overview of the user's Food, Move, and Rest domains and their My Path progress trail.",
+      "states": {
+        "loading": "A soft, pulsing brand-colored circle in the center with a gentle 'Preparing your Health HQ...' message.",
+        "empty": "No data yet. 'Your journey starts today' with an organic illustration and a CTA to log the first meal.",
+        "error": "A calm 'We lost connection' message with a subtle retry button."
+      },
+      "layout": "Top section: 'My Path' hero card with an abstract atmospheric sage background, showing the fixed-appearance milestone trail (no score, no human figure). Middle section: 'Food, Move & Rest' module with each domain shown separately — Food's strength components carry a direction-only Population Reference Marker (above/below/approximately-at national benchmark, never a raw HEI-2020 number), Move and Rest show logged minutes/hours. Bottom section: Cohort challenges and gamification (points/badges) displayed as minimalist list items. A floating action button (FAB) for meal logging and RAG LLM Chat Coach. Include a persistent illustrative-estimate disclaimer at the very bottom."
+    },
+    {
+      "name": "Meal Logging",
+      "purpose": "A non-judgmental, process-focused meal entry flow via photo or text. (Voice logging was removed in 2026-09 — TAMU AI, the app's sole AI provider, has no audio/speech input to transcribe against.)",
+      "states": {
+        "loading": "Skeleton placeholders for camera and text input fields.",
+        "empty": "A clean camera view or text prompt asking 'What did you eat today?' with soft lighting flatlay placeholder.",
+        "error": "Message 'Unable to process the image.' with an option to try again or enter text manually. If no TAMU AI key is set, a calm inline prompt to add one in Settings instead of an error."
+      },
+      "layout": "Full-screen camera view or text input with a soft gradient overlay at the bottom. Below the input, a confidence-gated review card that tracks process-based goals (fiber/sodium) rather than calories. Incorporate a 'Behavioral Safety Check-in' modal that appears if restrictive patterns are detected, using soft terracotta alerts."
+    },
+    {
+      "name": "Curriculum & Games",
+      "purpose": "Scenario-based mini-games and video curriculum to apply nutrition information.",
+      "states": {
+        "loading": "Skeleton video thumbnails and game cards.",
+        "empty": "No active courses. A serene message 'Ready to learn?' with a CTA to start the first module.",
+        "error": "A calm 'Unable to load curriculum' message with a subtle retry button."
+      },
+      "layout": "Editorial-style list layout. Full-width, borderless video cards with organic food flatlay background images, using a gradient scrim and white serif titles on top. Below the videos, the 3 mini-games (Plan Your Week, Menu Challenge, Build a Meal) are listed as soft cards with subtle icons. Generous vertical spacing between sections."
+    }
+  ],
+  "images": {
+    "digital_twin_atmosphere": {
+      "url": "https://images.unsplash.com/photo-1603277578692-c699f37c67d3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGF0bW9zcGhlcmljJTIwd2VsbG5lc3MlMjB0ZXh0dXJlJTIwc2FnZSUyMGdyZWVuJTIwYW5kJTIwY3JlYW18ZW58MHx8fHwxNzg3NzE1NTY0fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Abstract atmospheric wellness texture in sage green and cream"
+    },
+    "hq_botanical_background": {
+      "url": "https://images.pexels.com/photos/19045066/pexels-photo-19045066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Calm botanical view behind sheer curtains with natural light"
+    },
+    "curriculum_food_flatlay": {
+      "url": "https://images.pexels.com/photos/9717268/pexels-photo-9717268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Healthy balanced meal with fresh ingredients in soft lighting"
+    }
+  },
+  "haptics": {
+    "primary_button_press": "impactLight",
+    "tab_change": "selection",
+    "meal_logged_success": "notificationSuccess",
+    "safety_check_in_trigger": "notificationWarning",
+    "reward_particle_collect": "impactLight"
+  },
+  "instructions_to_main_agent": [
+    "Strictly adhere to the '3 Editorial Mobile LIGHT' personality. Keep radii small (6px) or 0px, and avoid heavy shadows. The UI must feel like a calming wellness journal.",
+    "Implement 'My Path' using the abstract atmospheric image provided as a single fixed-appearance milestone trail. NEVER show human weight or appearance, and never derive its position from a health outcome or an HEI-2020 score — only from logging behavior.",
+    "Ensure all prognostic outputs and AI RAG responses carry the persistent illustrative-estimate disclaimer in a legible but subtle typography style (e.g., small, muted color).",
+    "For meal logging, track the nine qualitative category tags (vegetables, fruit, whole grains, etc.) ONLY. Never mention calories, weight, or a raw HEI-2020 number.",
+    "Integrate a Behavioral Safety Layer. If restrictive patterns are detected, trigger a bottom sheet modal (using Gorhom) with a non-judgmental check-in.",
+    "All background images with text on top MUST use a vertical gradient scrim (transparent to surfaceInverse) to guarantee WCAG contrast.",
+    "Avoid glassmorphism for this specific editorial personality, keep surfaces flat, soft, and matte."
+  ]
+}

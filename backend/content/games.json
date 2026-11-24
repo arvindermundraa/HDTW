@@ -1,0 +1,552 @@
+{
+  "_comment": "Mini-game question banks for g1 (Plan Your Week) and g2 (Nutrition / Menu Challenge). Grown from the small inline bank previously in server.py to 15-20 questions each, drawn from the three curriculum areas (Planning for Healthy Eating, Applying Nutrition Information, Assembling Balanced Meals). Rounds group related scenarios so the game feels like levels; each choice carries a one-line explanation for instant feedback. New items added in this pass are marked 'draft': true so the nutrition team can review before they go live; items without that flag were already approved copy from the original bank. g3 is the plate builder — its logic stays in plate_composer; scoring criteria are intentionally NOT invented here (see server.py plate scoring TODO).",
+  "games": [
+    {
+      "id": "g1",
+      "title": "Plan Your Week",
+      "rehearses": "Planning for Healthy Eating",
+      "intro": "A busy week ahead with a tight budget. Make choices that set you up to eat well.",
+      "points": 40,
+      "rounds": [
+        {
+          "id": "r1",
+          "title": "Round 1 — Sunday setup",
+          "scenarios": [
+            {
+              "id": "s1",
+              "prompt": "It's Sunday. You have 30 minutes and $40 for groceries. What's your move?",
+              "choices": [
+                { "id": "a", "text": "Buy flexible staples: beans, oats, frozen veg, eggs", "correct": true,
+                  "feedback": "Flexible, affordable staples make weekday meals effortless." },
+                { "id": "b", "text": "Skip the store, you'll figure it out daily", "correct": false,
+                  "feedback": "No plan often means last-minute takeout. A few staples remove that pressure.", "marker": "planning_gap" },
+                { "id": "c", "text": "Spend it all on one fancy dinner", "correct": false,
+                  "feedback": "Fun, but it leaves the rest of the week unplanned and over budget.", "marker": "budget_gap" }
+              ]
+            },
+            {
+              "id": "s2",
+              "draft": true,
+              "prompt": "You have 60 minutes to meal-prep. Pick the highest-return task.",
+              "choices": [
+                { "id": "a", "text": "Cook a big pot of grains and roast a tray of veg", "correct": true,
+                  "feedback": "Two bases cover 5-6 lunches with light assembly later." },
+                { "id": "b", "text": "Pre-slice fruit for the whole week", "correct": false,
+                  "feedback": "Nice touch, but fruit on its own doesn't carry lunches — bases do.", "marker": "planning_gap" },
+                { "id": "c", "text": "Make one elaborate dinner for tonight", "correct": false,
+                  "feedback": "Weeknight-you will thank weekend-you more for bases than for a single feast.", "marker": "planning_gap" }
+              ]
+            },
+            {
+              "id": "s3",
+              "draft": true,
+              "prompt": "Your pantry has beans, rice, canned tomatoes, oats, and frozen spinach. Lean protein from the fridge: eggs. What's a plan-friendly default lunch?",
+              "choices": [
+                { "id": "a", "text": "Rice + beans + spinach bowl with a fried egg on top", "correct": true,
+                  "feedback": "Whole grain, a protein source, and a vegetable — classic flexible balance." },
+                { "id": "b", "text": "Buttered toast and coffee", "correct": false,
+                  "feedback": "Light on protein and vegetables — it won't carry you to dinner.", "marker": "balance_gap" },
+                { "id": "c", "text": "Order delivery because the pantry's 'boring'", "correct": false,
+                  "feedback": "Those pantry staples ARE the plan — they're how balanced eating survives a busy week.", "marker": "planning_gap" }
+              ]
+            },
+            {
+              "id": "s4",
+              "draft": true,
+              "prompt": "Grocery store, $25 left and a cart with chicken and rice. One more pick to round out the week.",
+              "choices": [
+                { "id": "a", "text": "A bag of frozen broccoli + a bag of apples", "correct": true,
+                  "feedback": "Produce you won't lose to spoilage, and a snack-ready fruit — strong finish." },
+                { "id": "b", "text": "A tub of ice cream", "correct": false,
+                  "feedback": "Not a sin, but it doesn't earn the slot — a vegetable or fruit would carry more meals.", "marker": "balance_gap" },
+                { "id": "c", "text": "An energy drink 12-pack", "correct": false,
+                  "feedback": "Expensive, high in added sugar, and doesn't build any meal.", "marker": "budget_gap" }
+              ]
+            },
+            {
+              "id": "s5",
+              "draft": true,
+              "prompt": "You're planning the week on paper. What's the most useful first line?",
+              "choices": [
+                { "id": "a", "text": "List the 3 nights you'll actually be home to cook", "correct": true,
+                  "feedback": "Anchor the plan to your real schedule — then meals get built around it." },
+                { "id": "b", "text": "Write out seven unique dinner recipes", "correct": false,
+                  "feedback": "Ambitious, but a plan that assumes you cook every night usually breaks.", "marker": "planning_gap" },
+                { "id": "c", "text": "Just copy last week's plan", "correct": false,
+                  "feedback": "If last week worked — fair! If it didn't, same list = same problem.", "marker": "planning_gap" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "r2",
+          "title": "Round 2 — Weekday execution",
+          "scenarios": [
+            {
+              "id": "s6",
+              "prompt": "Wednesday is packed. How do you handle lunch?",
+              "choices": [
+                { "id": "a", "text": "Batch-prepped grain bowl from Sunday", "correct": true,
+                  "feedback": "Prepping ahead pays off exactly on days like this." },
+                { "id": "b", "text": "Skip lunch to save time", "correct": false,
+                  "feedback": "Skipping tends to backfire later. A quick prepped option keeps you steady.", "marker": "skip_meal" },
+                { "id": "c", "text": "Grab a candy bar from a vending machine", "correct": false,
+                  "feedback": "Fast, but mostly added sugar — it won't carry you to dinner.", "marker": "balance_gap" }
+              ]
+            },
+            {
+              "id": "s7",
+              "draft": true,
+              "prompt": "You wake up late. What's the realistic breakfast move?",
+              "choices": [
+                { "id": "a", "text": "Yogurt + fruit grabbed on the way out", "correct": true,
+                  "feedback": "Protein + fruit, zero prep — the point of a plan is to make this easy." },
+                { "id": "b", "text": "Nothing — you'll 'catch up' later", "correct": false,
+                  "feedback": "Catching up usually becomes grazing on whatever's handy, not a balanced meal.", "marker": "skip_meal" },
+                { "id": "c", "text": "A large sweetened coffee drink", "correct": false,
+                  "feedback": "Mostly added sugar — hunger and energy will crash by late morning.", "marker": "balance_gap" }
+              ]
+            },
+            {
+              "id": "s8",
+              "draft": true,
+              "prompt": "It's 9 PM, you're home, you haven't eaten dinner. Pantry only.",
+              "choices": [
+                { "id": "a", "text": "Tuna + whole-wheat crackers + a side of frozen veg microwaved", "correct": true,
+                  "feedback": "Protein, whole grain, vegetable — a balanced plate in six minutes." },
+                { "id": "b", "text": "Bowl of sugary cereal with milk", "correct": false,
+                  "feedback": "Quick, but mostly refined carbs and added sugar before bed.", "marker": "balance_gap" },
+                { "id": "c", "text": "Skip dinner, go to bed", "correct": false,
+                  "feedback": "Skipping dinner often means stronger late-night cravings or a rougher sleep.", "marker": "skip_meal" }
+              ]
+            },
+            {
+              "id": "s9",
+              "draft": true,
+              "prompt": "Friends invite you out for dinner, but you'd planned to cook. What's the plan-flexible move?",
+              "choices": [
+                { "id": "a", "text": "Go out, swap tonight's planned meal to tomorrow", "correct": true,
+                  "feedback": "A plan is a guide, not a cage. Shift it and go." },
+                { "id": "b", "text": "Say no and eat your sad planned pasta alone", "correct": false,
+                  "feedback": "Social meals matter — rigid plans tend to collapse under this exact pressure.", "marker": "planning_gap" },
+                { "id": "c", "text": "Order DoorDash on top of the planned ingredients", "correct": false,
+                  "feedback": "Double food, double cost — the ingredients spoil instead of getting used.", "marker": "budget_gap" }
+              ]
+            },
+            {
+              "id": "s10",
+              "draft": true,
+              "prompt": "You open the fridge Thursday night. The planned chicken is a day past its 'use by' and smells off.",
+              "choices": [
+                { "id": "a", "text": "Toss it, assemble a pantry stir-fry with beans and frozen veg", "correct": true,
+                  "feedback": "Spoiled protein is a hard no — pantry staples exist for exactly this moment." },
+                { "id": "b", "text": "Cook it anyway, it 'should' be fine", "correct": false,
+                  "feedback": "Not worth the food-poisoning risk — trust the pantry backup instead.", "marker": "planning_gap" },
+                { "id": "c", "text": "Skip dinner and go to bed hungry", "correct": false,
+                  "feedback": "Fallback eating is what pantry staples are for — a plan isn't 'ruined' by swapping proteins.", "marker": "skip_meal" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "r3",
+          "title": "Round 3 — Budget and scale",
+          "scenarios": [
+            {
+              "id": "s11",
+              "draft": true,
+              "prompt": "Three cheapest-per-serving protein sources in a typical US grocery store?",
+              "choices": [
+                { "id": "a", "text": "Dried beans, eggs, canned tuna", "correct": true,
+                  "feedback": "All three come in well under $1 per serving most weeks." },
+                { "id": "b", "text": "Shrimp, steak, salmon fillet", "correct": false,
+                  "feedback": "Great foods, but typically the highest-per-serving proteins in the aisle.", "marker": "budget_gap" },
+                { "id": "c", "text": "Protein bars, jerky, protein powder", "correct": false,
+                  "feedback": "Convenient, but priced for the processing — not a per-serving win.", "marker": "budget_gap" }
+              ]
+            },
+            {
+              "id": "s12",
+              "draft": true,
+              "prompt": "Frozen vegetables vs. fresh — which pick usually wins on a tight budget?",
+              "choices": [
+                { "id": "a", "text": "Frozen, because nothing wilts before you cook it", "correct": true,
+                  "feedback": "Frozen is nutritionally comparable and dramatically cuts spoilage waste." },
+                { "id": "b", "text": "Fresh — frozen 'isn't real food'", "correct": false,
+                  "feedback": "Frozen is just vegetables, picked at peak and flash-frozen. Food is food.", "marker": "balance_gap" },
+                { "id": "c", "text": "Neither — just skip vegetables this week", "correct": false,
+                  "feedback": "A week without vegetables isn't a budget win, it's a nutrition gap.", "marker": "balance_gap" }
+              ]
+            },
+            {
+              "id": "s13",
+              "draft": true,
+              "prompt": "Store brands vs. name brands on pantry staples (rice, beans, oats)?",
+              "choices": [
+                { "id": "a", "text": "Store brand — the ingredient is identical", "correct": true,
+                  "feedback": "On commodities like rice and beans, store brand is the same food at 20–40% off." },
+                { "id": "b", "text": "Name brand always — it's higher quality", "correct": false,
+                  "feedback": "True for very few staples. For plain grains and beans, you're paying for marketing.", "marker": "budget_gap" },
+                { "id": "c", "text": "Mix of imported organic specialty items", "correct": false,
+                  "feedback": "Fine occasionally — bad default for a tight budget.", "marker": "budget_gap" }
+              ]
+            },
+            {
+              "id": "s14",
+              "draft": true,
+              "prompt": "A big-batch pot of chili will stretch across the week. Smartest companion to prep alongside it?",
+              "choices": [
+                { "id": "a", "text": "A pot of brown rice and a tray of roasted veg", "correct": true,
+                  "feedback": "Rotate the chili over the same two bases to keep lunches from feeling repetitive." },
+                { "id": "b", "text": "A second pot of chili", "correct": false,
+                  "feedback": "You'll be sick of chili by Wednesday — variety sustains the plan.", "marker": "planning_gap" },
+                { "id": "c", "text": "A sheet of brownies", "correct": false,
+                  "feedback": "Treats are fine; they're not the base you're building the week on.", "marker": "balance_gap" }
+              ]
+            },
+            {
+              "id": "s15",
+              "draft": true,
+              "prompt": "Your campus has a free weekly produce pantry (real on many US campuses). You can take 5 items.",
+              "choices": [
+                { "id": "a", "text": "Onions, carrots, apples, sweet potatoes, bananas — all keep well", "correct": true,
+                  "feedback": "High-storage-life produce that stretches across many meals — strongest free-food return." },
+                { "id": "b", "text": "Five bags of pre-cut salad", "correct": false,
+                  "feedback": "Pre-cut greens wilt in 2–3 days — most of it will go to waste.", "marker": "budget_gap" },
+                { "id": "c", "text": "Nothing — 'free food is embarrassing'", "correct": false,
+                  "feedback": "Campus produce pantries exist because they help. Taking what you'll eat is exactly the point.", "marker": "budget_gap" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "title": "Nutrition / Menu Challenge",
+      "rehearses": "Applying Nutrition Information",
+      "intro": "Read real labels and menus, and choose with confidence.",
+      "points": 40,
+      "_hidden_notice": "DISABLED 2026-10-29 — nutrition team flagged this activity as having inaccurate information and being the wrong Week 2 activity. The Week 2 workflow (backend/content/weeks/week2.json) is the correct Week 2 activity. Visibility is gated by MENU_CHALLENGE_ENABLED=false in server.py. The rounds below are kept for reference only; they are not served to any account.",
+      "_pending_rework_slot": {
+        "note": "Nutrition team sample questions go here when they land. Paste the new scenarios + choices under 'rounds'. Keep the schema identical to the other games so no code changes are needed. Set _hidden_notice to null when the activity is reinstated.",
+        "scenarios": []
+      },
+      "rounds": [
+        {
+          "id": "r1",
+          "title": "Round 1 — Reading the label",
+          "scenarios": [
+            {
+              "id": "s1",
+              "draft": true,
+              "prompt": "Two cereals. A lists sugar as the second ingredient. B lists whole oats as the first ingredient. Which is the whole-grain pick?",
+              "choices": [
+                { "id": "a", "text": "Cereal B — a whole grain is listed first", "correct": true,
+                  "feedback": "Ingredients are listed in order by weight — first ingredient wins." },
+                { "id": "b", "text": "Cereal A — the front says 'multigrain' so it must count", "correct": false,
+                  "feedback": "'Multigrain' only means multiple grains; most of them could be refined.", "marker": "label_gap" }
+              ]
+            },
+            {
+              "id": "s2",
+              "draft": true,
+              "prompt": "A bread label says 'multigrain' on the front. Where does 'whole grain' actually need to appear to count as a whole-grain product?",
+              "choices": [
+                { "id": "a", "text": "First on the ingredients list — 'whole wheat flour' or similar", "correct": true,
+                  "feedback": "The front of the pack isn't regulated like the ingredient list. First ingredient wins." },
+                { "id": "b", "text": "Anywhere on the front of the package", "correct": false,
+                  "feedback": "'Multigrain' only means multiple grains — most of them could be refined.", "marker": "label_gap" },
+                { "id": "c", "text": "In the brand name", "correct": false,
+                  "feedback": "Brand names aren't regulated — check the first ingredient.", "marker": "label_gap" }
+              ]
+            },
+            {
+              "id": "s3",
+              "draft": true,
+              "prompt": "A chip bag says 'serving size: about 15 chips' and 'servings per container: 3.5'. You eat the whole bag. How many servings is that?",
+              "choices": [
+                { "id": "a", "text": "About 3.5 servings — the whole bag is the total portion", "correct": true,
+                  "feedback": "Servings-per-container scales the whole label — a common place labels understate what you'll actually eat." },
+                { "id": "b", "text": "One serving — the label is for the whole bag", "correct": false,
+                  "feedback": "The nutrition panel is per serving, not per bag. Always check servings-per-container.", "marker": "label_gap" },
+                { "id": "c", "text": "No way to tell", "correct": false,
+                  "feedback": "You can — multiply the per-serving portion by servings-per-container.", "marker": "label_gap" }
+              ]
+            },
+            {
+              "id": "s4",
+              "draft": true,
+              "prompt": "A yogurt label says '0% fat' on the front. The ingredients list sugar as the second ingredient. Fair pick for a low-added-sugar day?",
+              "choices": [
+                { "id": "a", "text": "No — fat-free yogurts often add sugar to compensate on taste", "correct": true,
+                  "feedback": "Check 'Added Sugars' on the facts panel — fat-free doesn't mean low-sugar." },
+                { "id": "b", "text": "Yes — 0% fat is automatically healthier", "correct": false,
+                  "feedback": "A classic label trap: fat-free products often lead on added sugar.", "marker": "label_gap" },
+                { "id": "c", "text": "Yes — yogurt is always a safe pick", "correct": false,
+                  "feedback": "Plain yogurt is — sweetened versions often list sugar near the top of the ingredient list.", "marker": "label_gap" }
+              ]
+            },
+            {
+              "id": "s5",
+              "draft": true,
+              "prompt": "On a frozen meal, which quick label check is the clearest 'is this high in sodium?' signal?",
+              "choices": [
+                { "id": "a", "text": "Sodium %DV — anything 20% or higher is 'high' per the FDA", "correct": true,
+                  "feedback": "%DV is the fastest shortcut for 'is this a lot or a little?' — 20%+ is high." },
+                { "id": "b", "text": "The total fat line", "correct": false,
+                  "feedback": "Fat isn't the sodium story — look at the sodium line itself, in %DV.", "marker": "label_gap" },
+                { "id": "c", "text": "The brand's health claim on the front", "correct": false,
+                  "feedback": "Front-of-pack claims aren't regulated like the facts panel — check sodium %DV instead.", "marker": "label_gap" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "r2",
+          "title": "Round 2 — Menus in the wild",
+          "scenarios": [
+            {
+              "id": "s6",
+              "prompt": "At a burger spot, what's a balanced order?",
+              "choices": [
+                { "id": "a", "text": "Grilled sandwich, side salad, water", "correct": true,
+                  "feedback": "A balanced build even at a fast-food menu — nicely done." },
+                { "id": "b", "text": "Double patty, large fries, large soda", "correct": false,
+                  "feedback": "Heavy on sodium and low on vegetables. A side swap balances it out.", "marker": "sodium_gap" }
+              ]
+            },
+            {
+              "id": "s7",
+              "draft": true,
+              "prompt": "You're at a Mexican fast-casual chain. What's a balanced build?",
+              "choices": [
+                { "id": "a", "text": "Burrito bowl: brown rice, black beans, chicken, salsa, lots of veg", "correct": true,
+                  "feedback": "Whole grain + protein + loads of vegetables — a strong build at any chain." },
+                { "id": "b", "text": "Nachos with queso, no sides", "correct": false,
+                  "feedback": "Heavy on refined grains and cheese sauce, almost no vegetables.", "marker": "balance_gap" },
+                { "id": "c", "text": "Three crunchy tacos with meat and cheese only", "correct": false,
+                  "feedback": "Protein + grain, missing the vegetable half of the plate.", "marker": "balance_gap" }
+              ]
+            },
+            {
+              "id": "s8",
+              "draft": true,
+              "prompt": "Coffee shop stop. You want it to count as breakfast, not a dessert.",
+              "choices": [
+                { "id": "a", "text": "Oat-milk latte + a protein-and-egg wrap", "correct": true,
+                  "feedback": "Protein + whole grain + liquid — real breakfast, not a sugar bomb." },
+                { "id": "b", "text": "A large sweetened frappé and a muffin", "correct": false,
+                  "feedback": "Mostly added sugar before noon — this is a dessert, not a breakfast.", "marker": "balance_gap" },
+                { "id": "c", "text": "Black coffee and nothing else", "correct": false,
+                  "feedback": "Fine for a caffeine fix, but it's not a meal — hunger will catch up by late morning.", "marker": "skip_meal" }
+              ]
+            },
+            {
+              "id": "s9",
+              "draft": true,
+              "prompt": "Pizza night with friends. Minimum-regret order style?",
+              "choices": [
+                { "id": "a", "text": "Thin crust, half veggie, a side salad to share", "correct": true,
+                  "feedback": "Thinner crust + vegetables on top shifts the balance without saying 'no' to pizza." },
+                { "id": "b", "text": "Deep-dish stuffed with pepperoni and sausage", "correct": false,
+                  "feedback": "Heavy on refined grains, cheese and processed meats — occasional is fine, but it's the heaviest option.", "marker": "balance_gap" },
+                { "id": "c", "text": "Skip and sulk about not eating", "correct": false,
+                  "feedback": "Food is part of being with people — a vegetable-heavy slice fits a balanced week fine.", "marker": "skip_meal" }
+              ]
+            },
+            {
+              "id": "s10",
+              "draft": true,
+              "prompt": "On a drive-thru menu, which drink choice swings the whole order's added-sugar budget?",
+              "choices": [
+                { "id": "a", "text": "The 32-oz regular soda", "correct": true,
+                  "feedback": "A single large regular soda can carry more added sugar than the entire food side." },
+                { "id": "b", "text": "The side salad", "correct": false,
+                  "feedback": "Salads aren't your added-sugar risk — drinks almost always are.", "marker": "label_gap" },
+                { "id": "c", "text": "The small coffee, black", "correct": false,
+                  "feedback": "Black coffee adds roughly zero sugar — unless you sweeten it later.", "marker": "label_gap" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "r3",
+          "title": "Round 3 — Smart swaps",
+          "scenarios": [
+            {
+              "id": "s11",
+              "draft": true,
+              "prompt": "Craving crunch and salt. Lower-sodium swap for a regular bag of chips?",
+              "choices": [
+                { "id": "a", "text": "Air-popped popcorn with a little olive oil", "correct": true,
+                  "feedback": "Whole grain, low sodium when you salt it yourself, surprisingly satisfying crunch." },
+                { "id": "b", "text": "Pretzels", "correct": false,
+                  "feedback": "Pretzels are actually among the saltier chip-aisle swaps — check the label.", "marker": "sodium_gap" },
+                { "id": "c", "text": "Buttery crackers", "correct": false,
+                  "feedback": "Refined grain + butter + salt — not really a swap, just a side-step.", "marker": "balance_gap" }
+              ]
+            },
+            {
+              "id": "s12",
+              "draft": true,
+              "prompt": "Craving dessert. Lower-added-sugar swap that still tastes like a treat?",
+              "choices": [
+                { "id": "a", "text": "Plain Greek yogurt + berries + a tiny drizzle of honey", "correct": true,
+                  "feedback": "Protein + fruit, with sweetness you control — fraction of the added sugar of ice cream." },
+                { "id": "b", "text": "A 'diet' soda", "correct": false,
+                  "feedback": "Addresses the sugar hit, but there's no treat and no food — fine occasionally, not a swap.", "marker": "label_gap" },
+                { "id": "c", "text": "Fruit juice in a wine glass", "correct": false,
+                  "feedback": "Juice is still mostly sugar — about as much as the treat you're swapping.", "marker": "label_gap" }
+              ]
+            },
+            {
+              "id": "s13",
+              "draft": true,
+              "prompt": "Which pair of pantry staples swaps in the most added nutrition for the least extra work?",
+              "choices": [
+                { "id": "a", "text": "Whole-wheat pasta instead of white pasta; brown rice instead of white rice", "correct": true,
+                  "feedback": "Same cook, same meals — just more fiber and more lasting fullness." },
+                { "id": "b", "text": "Flavoured instant ramen instead of plain rice", "correct": false,
+                  "feedback": "Flavoured ramen packets are the sodium champions of the pantry. Big step the wrong way.", "marker": "sodium_gap" },
+                { "id": "c", "text": "Cereal bars instead of oatmeal", "correct": false,
+                  "feedback": "Plain oats beat most cereal bars on fiber and added sugar — the bars just look faster.", "marker": "label_gap" }
+              ]
+            },
+            {
+              "id": "s14",
+              "draft": true,
+              "prompt": "Store deli: ham vs. turkey vs. roast chicken, all 'oven roasted'. Lowest-sodium pick, usually?",
+              "choices": [
+                { "id": "a", "text": "Oven-roasted chicken breast, 'low sodium' variant if available", "correct": true,
+                  "feedback": "Chicken breast is usually the lightest-sodium deli meat — doubly so in low-sodium versions." },
+                { "id": "b", "text": "Ham", "correct": false,
+                  "feedback": "Ham is almost always the highest-sodium deli choice — cured meats carry a lot of salt.", "marker": "sodium_gap" },
+                { "id": "c", "text": "Flavoured bologna", "correct": false,
+                  "feedback": "Processed luncheon meats run very high in sodium — this is the heaviest, not the lightest.", "marker": "sodium_gap" }
+              ]
+            },
+            {
+              "id": "s15",
+              "draft": true,
+              "prompt": "You take two 'add vegetable' habits for the next week. Which pair gives the highest actual-eaten lift?",
+              "choices": [
+                { "id": "a", "text": "Keep washed baby carrots at eye level; add frozen spinach to any hot bowl", "correct": true,
+                  "feedback": "Low-friction defaults beat willpower — this is how 'eat more vegetables' actually happens." },
+                { "id": "b", "text": "Buy a specialty vegetable you've never cooked before", "correct": false,
+                  "feedback": "Novel foods usually spoil before they're cooked — great occasionally, poor as a weekly default.", "marker": "planning_gap" },
+                { "id": "c", "text": "Promise to make a huge salad every single night", "correct": false,
+                  "feedback": "Big-promise habits break on busy nights — small, lazy defaults survive.", "marker": "planning_gap" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "title": "Build a Balanced Meal",
+      "rehearses": "Assembling Balanced Meals",
+      "intro": "Drag ingredients onto your plate and build a balanced meal, round by round.",
+      "points": 40,
+      "type": "plate_builder"
+    }
+  ],
+  "daily_challenges": {
+    "_comment": "The daily challenge rotates by date (same for every participant on the same day) — chosen deterministically from this pool by index = (date_hash % len). Each awards a fixed 5 points on first correct answer that day.",
+    "fixed_points": 5,
+    "pool": [
+      {
+        "id": "dc_label_fiber",
+        "draft": true,
+        "prompt": "Daily challenge: comparing two cereals, what's the quickest 'heart-friendly' shortcut on the box?",
+        "choices": [
+          { "id": "a", "text": "First ingredient is a whole grain, and sugar isn't near the top of the list", "correct": true,
+            "feedback": "Ingredients are listed in order by weight — a whole grain first, with sugar well down the list, is the hard-to-game shortcut." },
+          { "id": "b", "text": "Zero sugar at all costs", "correct": false,
+            "feedback": "Not realistic for most pantries — a whole-grain first ingredient matters more than hitting zero." },
+          { "id": "c", "text": "The front of the box says 'heart healthy'", "correct": false,
+            "feedback": "Front-of-pack claims aren't regulated like the ingredient list — check the ingredients instead." }
+        ]
+      },
+      {
+        "id": "dc_portion_bag",
+        "draft": true,
+        "prompt": "Daily challenge: a chip bag says 'about 3 servings per container'. You eat the whole bag. How many servings is that?",
+        "choices": [
+          { "id": "a", "text": "About 3 servings — the whole bag is the total portion", "correct": true,
+            "feedback": "Servings-per-container scales the whole label — easy label trap once you see it." },
+          { "id": "b", "text": "One serving — the label is for the whole bag", "correct": false,
+            "feedback": "That's per serving, not per bag — a common portion-size misread." },
+          { "id": "c", "text": "No way to know", "correct": false,
+            "feedback": "You can — multiply the per-serving portion by servings-per-container." }
+        ]
+      },
+      {
+        "id": "dc_plate_balance",
+        "draft": true,
+        "prompt": "Daily challenge: the balanced-plate rule of thumb is roughly...",
+        "choices": [
+          { "id": "a", "text": "Half the plate vegetables and fruit, a quarter whole grain, a quarter protein", "correct": true,
+            "feedback": "Flexible, not rigid — a plate that fits most meals without weighing anything." },
+          { "id": "b", "text": "All protein, no grains at all", "correct": false,
+            "feedback": "Whole grains are part of a balanced plate — not something to zero out." },
+          { "id": "c", "text": "Mostly grains, a side of vegetables", "correct": false,
+            "feedback": "Vegetables usually belong on the biggest half of the plate." }
+        ]
+      },
+      {
+        "id": "dc_pantry_swap",
+        "draft": true,
+        "prompt": "Daily challenge: lowest-friction swap to add fiber this week?",
+        "choices": [
+          { "id": "a", "text": "Swap white rice for brown rice in your usual meals", "correct": true,
+            "feedback": "Same cook, same meals — just more fiber. The swap is the whole trick." },
+          { "id": "b", "text": "Buy an unfamiliar grain you've never cooked", "correct": false,
+            "feedback": "Novelty foods often spoil before they're cooked. Great occasionally — not the default lift." },
+          { "id": "c", "text": "Eat only salad for a week", "correct": false,
+            "feedback": "Not sustainable — small defaults beat heroic promises." }
+        ]
+      },
+      {
+        "id": "dc_sodium_dv",
+        "draft": true,
+        "prompt": "Daily challenge: on a nutrition label, which %DV sodium number does the FDA call 'high'?",
+        "choices": [
+          { "id": "a", "text": "20% DV or more", "correct": true,
+            "feedback": "20%+ DV = high; 5% or less = low. A clean shortcut for the sodium check." },
+          { "id": "b", "text": "5% DV", "correct": false,
+            "feedback": "5% is low, not high — easy to flip around in your head." },
+          { "id": "c", "text": "Any amount at all", "correct": false,
+            "feedback": "Sodium is a nutrient you need some of — the rule is 'high', not 'any'." }
+        ]
+      },
+      {
+        "id": "dc_breakfast_skip",
+        "draft": true,
+        "prompt": "Daily challenge: realistic breakfast on a late-waking morning?",
+        "choices": [
+          { "id": "a", "text": "Yogurt and fruit grabbed on the way out", "correct": true,
+            "feedback": "Protein + fruit, no prep. Low-friction defaults beat 'skip and catch up'." },
+          { "id": "b", "text": "Skip it, catch up with vending-machine chips later", "correct": false,
+            "feedback": "'Catching up' usually becomes grazing on whatever's handy — not a balanced plate." },
+          { "id": "c", "text": "Large sweetened coffee drink only", "correct": false,
+            "feedback": "Mostly added sugar — the crash in two hours isn't worth it." }
+        ]
+      },
+      {
+        "id": "dc_frozen_veg",
+        "draft": true,
+        "prompt": "Daily challenge: on a tight budget, frozen vegetables vs. fresh?",
+        "choices": [
+          { "id": "a", "text": "Frozen — comparable nutrition, no spoilage pressure", "correct": true,
+            "feedback": "Fresh wilts; frozen waits. On a tight budget, frozen wins the week." },
+          { "id": "b", "text": "Fresh — 'frozen isn't real food'", "correct": false,
+            "feedback": "Frozen is just vegetables picked at peak and flash-frozen. Food is food." },
+          { "id": "c", "text": "Neither, skip vegetables", "correct": false,
+            "feedback": "Not a budget win — a nutrition gap." }
+        ]
+      }
+    ]
+  }
+}
