@@ -48,7 +48,7 @@ nano .env
 In a new terminal:
 
 ```bash
-cd "/Users/sumanth/Downloads/HDTW-main 3/backend"
+cd backend
 source venv/bin/activate
 uvicorn server:app --reload --port 8000
 ```
@@ -60,7 +60,7 @@ API docs at: `http://localhost:8000/docs`
 In another terminal:
 
 ```bash
-cd "/Users/sumanth/Downloads/HDTW-main 3/frontend"
+cd frontend
 yarn start
 ```
 
@@ -79,7 +79,7 @@ After `yarn start`, you can:
 
 ### Backend Tests
 ```bash
-cd "/Users/sumanth/Downloads/HDTW-main 3/backend"
+cd backend
 source venv/bin/activate
 pytest -v
 ```

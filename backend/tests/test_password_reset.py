@@ -22,5 +22,5 @@ def test_email_configured_needs_host_and_sender(monkeypatch):
     assert not pr.email_configured()
     monkeypatch.setenv("SMTP_HOST", "smtp.gmail.com")
     assert not pr.email_configured()
-    monkeypatch.setenv("EMAIL_FROM", "LLHS Study <llhs.study@gmail.com>")
+    monkeypatch.setenv("EMAIL_FROM", "LLHS Study <study@example.com>")
     assert pr.email_configured()
