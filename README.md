@@ -1,5 +1,7 @@
 # Live Long, Heart Strong (LLHS)
 
+> **About this repository.** Application code for a dietary-behavior research study at Texas A&M University. The study design, requirements and nutrition content review came from the study team; this repository holds the software. It contains no participant data, credentials or keys.
+
 A mobile app-based dietary-behavior intervention for emerging adults (18–25), grounded in an externally-scored **HEI-2020** diet-quality index and organized around three permanently separate domains — **Food, Move, and Rest** — plus a single fixed-appearance "My Path" progress trail that advances only on logging behavior, never on a health outcome.
 
 **This document describes the rebuilt app** (September 2026), grounded directly in the project's source documents: the DTL "App Review and Development Notes," the "Updated DTL Slides 9.10.26," the onboarding Nutrition & Lifestyle Profile spec, and the HEI-2020 National Benchmark Reference. An earlier build of this codebase had drifted from those documents and invented governance and clinical narrative — fabricated IRB/DUA gates, a "Protective Mode"/SCOFF safety mode, a CARDIA long-term trajectory, and an LE8-style single 0–100 "Digital Twin" score — none of which is carried forward here, and none of which this README claims either.
